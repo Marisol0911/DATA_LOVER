@@ -8,7 +8,11 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin: 50px;
+  padding: 50px;
+  box-sizing: border-box;
   background: linear-gradient(180deg, #ffd4e5 0%, #f490b9 100%);
+  min-height: 100vh;
 }
 h1 {
   font-family: "Luckiest Guy", cursive;
