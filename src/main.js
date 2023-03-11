@@ -2,10 +2,6 @@ import { filterByName, sortByName, filterByType } from "./data.js";
 
 import data from "./data/pokemon/pokemon.js";
 
-//console.log(sortByName(data.pokemon));
-//console.log(filterByType(data.pokemon));
-//console.log(filterByName(data.pokemon, "sq"));
-
 const cardFront = document.querySelector(".card-front-container");
 
 function displayPokemon(pokemonData) {
@@ -21,7 +17,8 @@ function displayPokemon(pokemonData) {
       <div class="pokemon-type">${pokemon.type}</div>
     `;
     cardFront.appendChild(card);
+    console.log("bla bla bla ");
   });
 }
 
-displayPokemon(pokemon);
+displayPokemon(data);
