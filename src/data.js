@@ -1,11 +1,25 @@
 // estas funciones son de ejemplo
 
-export const filterData = (datos, condicion) => {
-  return datos.filter(condicion);
-
+export const filterData = (data, filterName) => {
+  return data.filter(
+    (pokemon) =>
+      pokemon.name.toLowerCase().indexOf(filterName.toLowerCase()) > -1
+  );
 };
-export const sortData = (datos, condicion) => {
+
+/**
+ * Filtra la matríz en función de un criterio de búsqueda (query)
+ */
+
+/*export const sortData = (datos, condicion) => {
   return datos.sort(condicion);
+
+export const anotherExample = () => {
+  return "OMG";
+};*/
+export const example = () => {
+  return "example";
+};
 
 export const anotherExample = () => {
   return "OMG";

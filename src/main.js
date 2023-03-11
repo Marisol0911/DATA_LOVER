@@ -1,6 +1,5 @@
-import { filterData, sortData } from "./data.js";
+import { filterData } from "./data.js";
 
 import data from "./data/pokemon/pokemon.js";
-let pokemon = data.films;
 
-console.log(example, data);
+console.log(filterData(data.pokemon, "sq"));
