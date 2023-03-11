@@ -17,7 +17,7 @@ body {
 }
 h1 {
   font-family: "Luckiest Guy", cursive;
-  color: #665ded;
+  color: #f282a7;
   text-align: center;
   text-shadow: 2px 2px 5px white;
   font-size: 36px;
@@ -32,7 +32,6 @@ nav {
   flex-direction: row;
   padding: 50px;
 }
-
 .menu section {
   width: 55px;
   height: 55px;
@@ -79,4 +78,18 @@ nav {
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+.card-front-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.pokemon-card {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "VT323", monospace;
+  font-size: 20px;
 }
