@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -21,13 +21,11 @@ h1 {
   text-shadow: 2px 2px 5px white;
   font-size: 36px;
 }
-
 .menu {
   display: flex;
   flex-direction: row;
   padding: 50px;
 }
-
 .menu section {
   width: 55px;
   height: 55px;
@@ -59,4 +57,18 @@ h1 {
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+.card-front-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.pokemon-card {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "VT323", monospace;
+  font-size: 20px;
 }

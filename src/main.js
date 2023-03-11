@@ -11,16 +11,13 @@ function displayPokemon(pokemonData) {
     card.innerHTML = `
       <div class="pokemon-num">#${pokemon.num}</div>
       <img class="pokemon-image" src="${pokemon.img}" alt="${pokemon.name}">
-      <div class="pokemon-name">${pokemon.name}</div>
+      <div class="pokemon-name">${
+        pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+      }</div>
       <div class="pokemon-type">${pokemon.type}</div>
     `;
     cardFront.appendChild(card);
   });
 }
 
-let len = pokemon.pokemon.length;
-console.log(len);
-pokemon.pokemon.forEach((pokemon) => {
-  console.log(pokemon.name);
-});
 displayPokemon(pokemon);
