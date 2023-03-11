@@ -16,3 +16,13 @@ export const sortByName = (data) => {
     }
   });
 };
+
+export const filterByType = (data, filterType) => {
+  return data.filter(
+    (pokemon) =>
+      pokemon.type
+        .String()
+        .toLowerCase()
+        .indexOf(filterType.String().toLowerCase()) > -1
+  );
+};
