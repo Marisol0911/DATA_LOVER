@@ -1,6 +1,5 @@
 // estas funciones son de ejemplo
-
-export const filterData = (data, filterName) => {
+export const filterByName = (data, filterName) => {
   return data.filter(
     (pokemon) =>
       pokemon.name.toLowerCase().indexOf(filterName.toLowerCase()) > -1
