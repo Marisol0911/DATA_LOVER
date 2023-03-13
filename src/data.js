@@ -1,7 +1,7 @@
 export const filterByName = (data, filterName) => {
   return data.filter(
     (pokemon) =>
-      pokemon.name.toLowerCase().indexOf(filterName.toLowerCase()) > -1
+      pokemon.nametoLowerCase().indexOf(filterName.toLowerCase()) > -1
   );
 };
 
@@ -17,12 +17,6 @@ export const sortByName = (data) => {
   });
 };
 
-export const filterByType = (data, filterType) => {
-  return data.filter(
-    (pokemon) =>
-      pokemon.type
-        .String()
-        .toLowerCase()
-        .indexOf(filterType.String().toLowerCase()) > -1
-  );
+export const filterByType = (data, typeUser) => {
+  return data.filter((pokemon) => pokemon.type.includes(typeUser));
 };
