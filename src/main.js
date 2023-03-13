@@ -1,7 +1,9 @@
 import { filterByName, sortByName, filterByType } from "./data.js";
 
 import data from "./data/pokemon/pokemon.js";
-
+console.log(sortByName(data.pokemon));
+//console.log(filterByType(data.pokemon, "grass"));
+console.log(filterByName(data.pokemon, "ditto"));
 const cardFront = document.querySelector(".card-front-container");
 const cardBack = document.querySelector(".card-back-container");
 
