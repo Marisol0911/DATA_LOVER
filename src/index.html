@@ -32,22 +32,49 @@
       <h1>PINKÉMON</h1>
       <nav id="menu-pokemon">
         <section class="menu">
-          <input type="text" placeholder="Buscar" required id="btn" />
-          <section class="searhc">
-            <section id="btn-searhc">
-              <span class="material-symbols-outlined"> search </span>
+          <input type="text" placeholder="Buscar" required id="btnName" />
+          <section id="search">
+            <section id="btn-search">
+              <span class="material-symbols-outlined"> Search </span>
             </section>
           </section>
 
           <section class="filter">
             <section id="btn-filter">
-              <span class="material-symbols-outlined"> filter_alt</span>
+              <span class="material-symbols-outlined">
+                filter_alt
+                <select type="select" class="type">
+                  <option value="normal" selected>Normal</option>
+                  <option value="fire" selected>Fire</option>
+                  <option value="fighting" selected>Fighting</option>
+                  <option value="water" selected>Water</option>
+                  <option value="flying" selected>Flying</option>
+                  <option value="grass" selected>Grass</option>
+                  <option value="poison" selected>Poison</option>
+                  <option value="electric" selected>Electric</option>
+                  <option value="ground" selected>Ground</option>
+                  <option value="psychic" selected>Psychic</option>
+                  <option value="rock" selected>Rock</option>
+                  <option value="ice" selected>Ice</option>
+                  <option value="bug" selected>Bug</option>
+                  <option value="dragon" selected>Dragon</option>
+                  <option value="ghost" selected>Ghost</option>
+                  <option value="dark" selected>Dark</option>
+                  <option value="steel" selected>Steel</option>
+                  <option value="fairy" selected>Fairy</option>
+                </select>
+              </span>
             </section>
           </section>
-
           <section class="order">
             <section id="btn-order">
-              <span class="material-symbols-outlined"> sort_by_alpha </span>
+              <span class="material-symbols-outlined">
+                sort_by_alpha
+                <select type="select" class="order">
+                  <option value="A" selected>ZA</option>
+                  <option value="Z" selected>AZ</option>
+                </select>
+              </span>
             </section>
           </section>
         </section>
