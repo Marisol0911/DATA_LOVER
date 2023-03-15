@@ -1,7 +1,7 @@
 export const filterByName = (data, filterName) => {
   return data.filter(
     (pokemon) =>
-      pokemon.nametoLowerCase().indexOf(filterName.toLowerCase()) > -1
+      pokemon.name.toLowerCase().indexOf(filterName.toLowerCase()) > -1
   );
 };
 
