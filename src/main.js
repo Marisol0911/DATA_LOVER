@@ -1,12 +1,19 @@
-import { filterByName, sortByName, filterByType, sortByCP } from "./data.js";
-import pokemon from "./data/pokemon/pokemon.js";
-
 import data from "./data/pokemon/pokemon.js";
-console.log(sortByCP(data.pokemon));
+
+import {
+  filterByName,
+  sortByName,
+  filterByType,
+  sortByCP,
+  sortByNameZA,
+} from "./data.js";
+
+//console.log(sortByCP(data.pokemon));
 //console.log(sortByName(data.pokemon));
 //console.log(filterByType(data.pokemon, "grass"));
 //console.log(filterByName(data.pokemon, "ditto"));
 //console.log(typeof pokemon.stats["max-cp"]);
+
 const cardFront = document.querySelector(".card-front-container");
 //const cardBack = document.querySelector(".card-back-container");
 const cardContainer = document.querySelector("main");
@@ -112,7 +119,8 @@ displayPokemon(data.pokemon);
 //elementos del dom
 const inputName = document.getElementById("btnName");
 const selectType = document.querySelector(".type");
-const selectOrder = document.querySelector(".order");
+const sortName = document.getElementById("bntSort");
+const sortName1 = document.getElementById("bntSort2");
 
 // como se ejecuta
 function searchPokemon() {
@@ -126,7 +134,6 @@ inputName.addEventListener("keyup", searchPokemon);
 
 function filterPokemonByType(event) {
   const selectedType = event.target.value;
-
   const pokemonsFiltered = filterByType(data.pokemon, selectedType);
 
   displayPokemon(pokemonsFiltered);
@@ -134,12 +141,21 @@ function filterPokemonByType(event) {
 
 selectType.addEventListener("change", filterPokemonByType);
 
-function OrderPokemonByType(event) {
-  const selectedOrder = event.target.value;
+function sortPokemonByName(event) {
+  const orderName = event.target.value;
+  const pokemonsSort = sortByName(data.pokemon, orderName);
 
-  const pokemonsFiltered = sortByName(data.pokemon, selectedOrder);
-
-  displayPokemon(pokemonsFiltered);
+  displayPokemon(pokemonsSort);
 }
+
+function sortPokemonByNam(event) {
+  const orderName = event.target.value;
+  const pokemonsSort = sortByNameZA(data.pokemon, orderName);
+
+  displayPokemon(pokemonsSort);
+}
+
+sortName.addEventListener("click", sortPokemonByName);
+sortName1.addEventListener("click", sortPokemonByNam);
 
 selectType.addEventListener("change", OrderPokemonByType);
