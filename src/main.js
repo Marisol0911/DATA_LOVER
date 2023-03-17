@@ -1,45 +1,52 @@
-import { filterByName, sortByName, filterByType } from "./data.js";
+import { filterByName, sortByName, filterByType, sortByCP } from "./data.js";
+import pokemon from "./data/pokemon/pokemon.js";
 
 import data from "./data/pokemon/pokemon.js";
+console.log(sortByCP(data.pokemon));
 //console.log(sortByName(data.pokemon));
 //console.log(filterByType(data.pokemon, "grass"));
 //console.log(filterByName(data.pokemon, "ditto"));
+//console.log(typeof pokemon.stats["max-cp"]);
 const cardFront = document.querySelector(".card-front-container");
-const cardBack = document.querySelector(".card-back-container");
+//const cardBack = document.querySelector(".card-back-container");
 const cardContainer = document.querySelector("main");
 const typeIcons = {
   normal:
-    '<span class="type-icon"><img src="/src/typelogo/normalicon.png" alt="normal"></span>',
-  fire: '<span class="type-icon"><img src="/src/typelogo/fireicon.png" alt="fire"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/normalicon.png" alt="normal"></article>',
+  fire: '<article class="type-icon"><img src="/src/typelogo/fireicon.png" alt="fire"></article>',
   water:
-    '<span class="type-icon"><img src="/src/typelogo/watericon.png" alt="water"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/watericon.png" alt="water"></article>',
   electric:
-    '<span class="type-icon"><img src="/src/typelogo/electricicon.png" alt="electric"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/electricicon.png" alt="electric"></article>',
   grass:
-    '<span class="type-icon"><img src="/src/typelogo/grassicon.png" alt="grass"></span>',
-  ice: '<span class="type-icon"><img src="/src/typelogo/iceicon.png" alt="ice"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/grassicon.png" alt="grass"></article>',
+  ice: '<article class="type-icon"><img src="/src/typelogo/iceicon.png" alt="ice"></article>',
   fighting:
-    '<span class="type-icon"><img src="/src/typelogo/fightingicon.png" alt="fighting"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/fightingicon.png" alt="fighting"></article>',
   poison:
-    '<span class="type-icon"><img src="/src/typelogo/poisonicon.png" alt="poison"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/poisonicon.png" alt="poison"></article>',
   ground:
-    '<span class="type-icon"><img src="/src/typelogo/groundicon.png" alt="ground"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/groundicon.png" alt="ground"></article>',
   flying:
-    '<span class="type-icon"><img src="/src/typelogo/flyingicon.png" alt="flying"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/flyingicon.png" alt="flying"></article>',
   psychic:
-    '<span class="type-icon"><img src="/src/typelogo/psychicicon.png" alt="psychic"></span>',
-  bug: '<span class="type-icon"><img src="/src/typelogo/bugicon.png" alt="bug"></span>',
-  rock: '<span class="type-icon"><img src="/src/typelogo/rockicon.png" alt="rock"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/psychicicon.png" alt="psychic"></article>',
+  bug: '<article class="type-icon"><img src="/src/typelogo/bugicon.png" alt="bug"></article>',
+  rock: '<article class="type-icon"><img src="/src/typelogo/rockicon.png" alt="rock"></article>',
   ghost:
-    '<span class="type-icon"><img src="/src/typelogo/ghosticon.png" alt="ghost"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/ghosticon.png" alt="ghost"></article>',
   dragon:
-    '<span class="type-icon"><img src="/src/typelogo/dragonicon.png" alt="dragon"></span>',
-  dark: '<span class="type-icon"><img src="/src/typelogo/darkicon.png" alt="dark"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/dragonicon.png" alt="dragon"></article>',
+  dark: '<article class="type-icon"><img src="/src/typelogo/darkicon.png" alt="dark"></article>',
   steel:
-    '<span class="type-icon"><img src="/src/typelogo/steelicon.png" alt="steel"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/steelicon.png" alt="steel"></article>',
   fairy:
-    '<span class="type-icon"><img src="/src/typelogo/fairyicon.png" alt="fairy"></span>',
+    '<article class="type-icon"><img src="/src/typelogo/fairyicon.png" alt="fairy"></article>',
 };
+const loadingPage = document.querySelector("#loading");
+window.addEventListener("load", () => {
+  loadingPage.style.display = "none";
+});
 function displayPokemon(pokemonData) {
   pokemonData.pokemon.forEach((pokemon) => {
     const card = document.createElement("div");
@@ -54,6 +61,8 @@ function displayPokemon(pokemonData) {
         pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
       }</div>
       <div class="pokemon-type">${typeEmojis}</div>
+      <div class="pokemon-cp">Max CP: ${pokemon.stats["max-cp"]}</div>
+      <div class="pokemon-region">Region: ${pokemon.generation.name}</div>
     `;
     cardFront.appendChild(card);
     card.addEventListener("click", () => {
@@ -84,17 +93,16 @@ function displayPokemon(pokemonData) {
               .join("")}
           </div>
         </div>
-      `;
+      `; //inner html reverse card ends
       cardFront.style.display = "none";
-      cardBack.style.display = "none";
+      //cardBack.style.display = "none";
       cardContainer.appendChild(expandedCard);
       expandedCard.addEventListener("click", () => {
         cardFront.style.display = "grid";
-        cardBack.style.display = "grid";
+        //cardBack.style.display = "grid";
         cardContainer.removeChild(expandedCard);
       });
     });
   });
 }
-
 displayPokemon(data);
