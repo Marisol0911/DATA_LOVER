@@ -5,6 +5,51 @@ export const filterByName = (data, filterName) => {
   );
 };
 
+export const getNextEvolutions = (pokemonEvolutions, pokemonData) => {
+  const nextEvolutions = [];
+  pokemonEvolutions.forEach((searchPokemon) => {
+    nextEvolutions.push(
+      pokemonData.find((pokemon) => pokemon.name === searchPokemon.name)
+    );
+
+    if (searchPokemon["next-evolution"] !== undefined) {
+      const newEvolutions = getNextEvolutions(
+        searchPokemon["next-evolution"],
+        pokemonData
+      );
+      newEvolutions.forEach((newPokemon) => {
+        nextEvolutions.push(newPokemon);
+      });
+    }
+  });
+
+  return nextEvolutions;
+};
+
+export const filternextEvolution = (data, filterNexEvolution) => {
+  return data.filter((pokemon) =>
+    pokemon["next-evolution"].includes(filterNexEvolution)
+  );
+};
+
+export const filterprevEvolution = (data, filterPreEvolution) => {
+  return data.filter((pokemon) =>
+    pokemon["prev-evolution"].includes(filterPreEvolution)
+  );
+};
+export const sortByNum = (data) => {
+  return data.sort((a, b) => {
+    if (a.num < b.num) {
+      return -1;
+    }
+    if (a.num > b.num) {
+      return 1;
+    }
+
+    return 0;
+  });
+};
+
 export const sortByName = (data) => {
   return data.sort((a, b) => {
     if (a.name < b.name) {
