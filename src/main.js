@@ -4,18 +4,12 @@ import {
   filterByName,
   sortByName,
   filterByType,
-
-  sortByCP,
   sortByNameZA,
   sortByNum,
   getNextEvolutions,
-} from "./data.js";
-
-//console.log(sortByCP(data.pokemon));
-
+  //getPrevEvolutions,
   sortByDescCP,
   sortByAscCP,
-  sortByNameZA,
   filterByRarity,
   filterByRegion,
 } from "./data.js";
@@ -30,7 +24,6 @@ import {
 //console.log(sortByNum(data.num));
 
 //console.log(filterByRegion(data.pokemon, "johto"));
-
 
 const cardFront = document.querySelector(".card-front-container");
 const cardBack = document.querySelector(".card-back-container");
@@ -247,7 +240,6 @@ function sortPokemonByNam(event) {
 sortName.addEventListener("click", sortPokemonByName);
 sortName1.addEventListener("click", sortPokemonByNam);
 
-
 //selectType.addEventListener("change", OrderPokemonByType);
 const showBackToTopOnPx = 100;
 const backToTopButton = document.querySelector(".back-to-top");
@@ -267,4 +259,3 @@ const goToTop = () => {
   behavior: "smooth";
 };
 backToTopButton.addEventListener("click", goToTop);
-
