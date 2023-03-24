@@ -1,12 +1,22 @@
 import data from "./data/pokemon/pokemon.js";
 
-import { filterByName, sortByName, filterByType, sortByCP, sortByNameZA} from "./data.js";
+import {
+  filterByName,
+  sortByName,
+  filterByType,
+  sortByDescCP,
+  sortByAscCP,
+  sortByNameZA,
+  filterByRarity,
+  filterByRegion,
+} from "./data.js";
 
-//console.log(sortByCP(data.pokemon));
+//console.log(sortByAscCP(data.pokemon));
 //console.log(sortByName(data.pokemon));
 //console.log(filterByType(data.pokemon, "grass"));
 //console.log(filterByName(data.pokemon, "ditto"));
 //console.log(typeof pokemon.stats["max-cp"]);
+//console.log(filterByRegion(data.pokemon, "johto"));
 
 const cardFront = document.querySelector(".card-front-container");
 //const cardBack = document.querySelector(".card-back-container");
@@ -115,6 +125,9 @@ const inputName = document.getElementById("btnName");
 const selectType = document.querySelector(".type");
 const sortName = document.getElementById("bntSort");
 const sortName1 = document.getElementById("bntSort2");
+const sortCP = document.querySelector(".sort-by");
+const filterRarity = document.querySelector(".rarity");
+const filterRegion = document.querySelector(".region");
 
 // como se ejecuta
 function searchPokemon() {
@@ -132,8 +145,41 @@ function filterPokemonByType(event) {
 
   displayPokemon(pokemonsFiltered);
 }
-
 selectType.addEventListener("change", filterPokemonByType);
+
+function manageRegionSelect(event) {
+  const selectedRegion = event.target.value;
+  const filteredPokemonRegion = filterByRegion(data.pokemon, selectedRegion);
+
+  displayPokemon(filteredPokemonRegion);
+}
+filterRegion.addEventListener("change", manageRegionSelect);
+
+function manageRaritySelect(event) {
+  const selectedRarity = event.target.value;
+  const filteredPokemonRarity = filterByRarity(data.pokemon, selectedRarity);
+
+  displayPokemon(filteredPokemonRarity);
+}
+filterRarity.addEventListener("change", manageRaritySelect);
+
+function manageSortSelect(event) {
+  const selectedSort = event.target.value;
+  let sortedPokemon;
+  if (selectedSort === "A-Z") {
+    sortedPokemon = sortByName(data.pokemon);
+  } else if (selectedSort === "Z-A") {
+    sortedPokemon = sortByNameZA(data.pokemon);
+  } else if (selectedSort === "desc") {
+    sortedPokemon = sortByDescCP(data.pokemon);
+  } else if (selectedSort === "asc") {
+    sortedPokemon = sortByAscCP(data.pokemon);
+  } else {
+    sortedPokemon = data.pokemon;
+  }
+  displayPokemon(sortedPokemon);
+}
+sortCP.addEventListener("change", manageSortSelect);
 
 function sortPokemonByName(event) {
   const orderName = event.target.value;
@@ -152,4 +198,22 @@ function sortPokemonByNam(event) {
 sortName.addEventListener("click", sortPokemonByName);
 sortName1.addEventListener("click", sortPokemonByNam);
 
-selectType.addEventListener("change", OrderPokemonByType);
+//selectType.addEventListener("change", OrderPokemonByType);
+const showBackToTopOnPx = 100;
+const backToTopButton = document.querySelector(".back-to-top");
+const scrollContainer = () => {
+  return document.documentElement || document.body;
+};
+
+document.addEventListener("scroll", () => {
+  if (scrollContainer().scrollTop > showBackToTopOnPx) {
+    backToTopButton.classList.remove("hidden");
+  } else {
+    backToTopButton.classList.add("hidden");
+  }
+});
+const goToTop = () => {
+  document.body.scrollIntoView();
+  behavior: "smooth";
+};
+backToTopButton.addEventListener("click", goToTop);
