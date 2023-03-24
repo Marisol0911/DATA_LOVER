@@ -73,13 +73,52 @@
                     <input class="sort1" type="button" value="" id="bntSort2" /> 
                   </article > 
 
+
           </article >
         </select>
+
+                <input class="sort" type="button" value="AZ" id="bntSort" />
+                <input class="sort1" type="button" value="ZA" id="bntSort2" />
+              </span>
+            </section>
+          </section>
+          <select id="sort-by-CP" class="sort-by">
+            <option value="default" id="defaultCP">Sort by:</option>
+            <option value="A-Z" id="descendant-alphabet">Name A-Z</option>
+            <option value="Z-A" id="ascendant-alphabet">Name Z-A</option>
+            <option value="desc" id="descendantCP">Higher to lower CP</option>
+            <option value="asc" id="ascendantCP">Lower to higher CP</option>
+          </select>
+        </section>
+        <section class="region">
+          <label for="region"
+            >Region:
+            <select id="region-name" class="pokemon-region">
+              <option>Select</option>
+              <option value="kanto" id="kanto-region">Kanto</option>
+              <option value="johto" id="johto-region">Johto</option>
+            </select>
+          </label>
+        </section>
+        <section class="rarity">
+          <label for="rarity"
+            >Rarity:
+            <select id="rarity" class="pokemon-rarity">
+              <option>Select</option>
+              <option value="normal" id="normal-pokemon">Normal</option>
+              <option value="legendary" id="legendary-pokemon">
+                Legendary
+              </option>
+              <option value="mythic" id="mythic-pokemon">Mythic</option>
+            </select>
+          </label>
+
         </section>
       </nav>
     </header>
     <main>
       <section class="loading-page" id="loading">
+        <p id="loading-message">Loading...</p>
         <img
           src="https://i.gifer.com/2e1E.gif"
           alt="singer jigglypuff"
@@ -90,6 +129,7 @@
         class="card-front-container"
         id="card-front"
         style="display: grid"
+
       ></article>
       <!--<div
         class="card-back-container"
@@ -98,6 +138,62 @@
       ></div>-->
 
       <article class="card-reverso-container" id="card-reverso"></article>
+
+      ></div>
+      <button class="back-to-top hidden">
+        <svg
+          class="back-to-top-icon"
+          fill="#FFFFFF"
+          height="400px"
+          width="400px"
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="-2.88 -2.88 29.76 29.76"
+          xml:space="preserve"
+          stroke="#FFFFFF"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
+          stroke-width="0.4800000000000001"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0">
+            <rect
+              x="-2.88"
+              y="-2.88"
+              width="3em"
+              height="29.76"
+              rx="14.88"
+              fill="#f787d0"
+              strokewidth="0"
+            ></rect>
+          </g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <polygon
+              points="7,12 7,11 9,11 9,9 11,9 11,21 13,21 13,9 15,9 15,11 17,11 17,12 19,12 19,9 17,9 17,7 15,7 15,5 14,5 14,4 13,4 13,3 11,3 11,4 10,4 10,5 9,5 9,7 7,7 7,9 5,9 5,12 "
+            ></polygon>
+          </g>
+        </svg>
+        <!--<svg
+          xmlns="https://www.svgrepo.com/svg/441884/up-arrow"
+          class="back-to-top-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M7 11l5-5m0 0l5 5m-5-5v12"
+          />
+        </svg>-->
+      </button>
+
     </main>
     <footer></footer>
     <script src="main.js" type="module"></script>
