@@ -19,50 +19,91 @@ body {
 }
 h1 {
   font-family: "Luckiest Guy", cursive;
-  color: #f282a7;
+  color: rgb(242, 94, 145);
   text-align: center;
   text-shadow: 2px 2px 5px white;
   font-size: 36px;
 }
 
-nav {
-  width: 100%;
-}
-
 .menu {
+  width: 100%;
   display: flex;
   flex-direction: row;
   padding: 50px;
-}
-.menu section {
-  width: 55px;
-  height: 55px;
-  line-height: 75px;
-  top: 0;
-  right: 0;
-  background: #e26dcc;
-  text-align: center;
-  color: #f5edf1;
-  font-size: 18px;
-  border-radius: 50%;
-  cursor: pointer;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-#btnName {
-  width: 350px;
-  height: 55px;
-  line-height: 55px;
-  top: 0;
-  right: 0;
-  background: #faf5fa;
-  text-align: center;
-  color: black;
-  font-size: 18px;
-  border-radius: 20px;
-  cursor: pointer;
+  flex-direction: row;
+  justify-content: center;
 }
 
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+#searchTerm {
+  width: 400px;
+  border: 3px solid pink;
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 20px;
+  outline: none;
+  color: #0c0e0d;
+}
+
+.searchButton {
+  width: 50px;
+  height: 40px;
+  border: 1px solid pink;
+  background: rgb(242, 94, 145);
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  cursor: cursor;
+  font-size: 20px;
+}
+
+#bntSort {
+  width: 50px;
+  height: 40px;
+  background: rgb(242, 94, 145);
+  color: whitesmoke;
+  border: 20px;
+  text-align: center;
+  cursor: cursor;
+  font-size: 25px;
+  display: flex;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  flex-direction: row;
+}
+#bntSort2 {
+  width: 50px;
+  height: 40px;
+  background: rgb(242, 94, 145);
+  color: whitesmoke;
+  border: 20px;
+  text-align: center;
+  cursor: cursor;
+  font-size: 25px;
+  display: flex;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  flex-direction: row;
+}
+#btn-filter {
+  width: 50px;
+  height: 40px;
+  background: rgb(242, 94, 145);
+  color: whitesmoke;
+  border: 20px;
+  text-align: center;
+  cursor: cursor;
+  font-size: 25px;
+  display: flex;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  flex-direction: row;
+}
 .card-front-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -108,8 +149,12 @@ nav {
   text-align: center;
   font-family: "VT323", monospace;
   font-size: 20px;
+  align-items: stretch;
+  align-content: flex-start;
 }
 .pokemon-card-expanded {
+  display: flex;
+  align-items: stretch;
   height: 400px;
   width: 700px;
   margin: 0 10px;
@@ -124,6 +169,35 @@ nav {
   text-align: center;
   font-family: "VT323", monospace;
   font-size: 20px;
+}
+
+.pokemon-info {
+  display: flex;
+  background: linear-gradient(rgb(233, 233, 240), pink);
+  border-radius: 20px 20px 20px 20px;
+}
+.containerDerecho {
+  order: -1;
+  text-align: left;
+  justify-content: space-around;
+  border: 3px solid plum;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.containerCentro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: justify;
+  border: 3px solid palevioletred;
+  border-radius: 20px 10px 50px 30px;
+  text-align: center;
+}
+.about {
+  order: -1;
+  text-align: left;
+}
+.height {
 }
 .type-icon {
   display: inline-block;

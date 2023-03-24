@@ -25,57 +25,56 @@
       href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <h1>PINKÉMON</h1>
-      <nav id="menu-pokemon">
+      <nav >
         <section class="menu">
-          <input type="text" placeholder="Buscar" required id="btnName" />
-          <section id="search">
-            <section id="btn-search">
-              <span class="material-symbols-outlined"> Search </span>
-            </section>
-          </section>
-
-          <section class="filter">
-            <section id="btn-filter">
-              <span class="material-symbols-outlined">
-                filter_alt
-                <select type="select" class="type">
-                  <option value="normal" selected>Normal</option>
-                  <option value="fire" selected>Fire</option>
-                  <option value="fighting" selected>Fighting</option>
-                  <option value="water" selected>Water</option>
-                  <option value="flying" selected>Flying</option>
-                  <option value="grass" selected>Grass</option>
-                  <option value="poison" selected>Poison</option>
-                  <option value="electric" selected>Electric</option>
-                  <option value="ground" selected>Ground</option>
-                  <option value="psychic" selected>Psychic</option>
-                  <option value="rock" selected>Rock</option>
-                  <option value="ice" selected>Ice</option>
-                  <option value="bug" selected>Bug</option>
-                  <option value="dragon" selected>Dragon</option>
-                  <option value="ghost" selected>Ghost</option>
-                  <option value="dark" selected>Dark</option>
-                  <option value="steel" selected>Steel</option>
-                  <option value="fairy" selected>Fairy</option>
+         
+          <article class="input">
+          <article class="search">
+          <input type="text" placeholder="Buscar" required id="searchTerm"/>
+          <button type="button" class="searchButton">
+            <i class="fa fa-search"></i>
+         </button>
+        </article>
+        </article>
+              <article id="btn-filter" >
+                
+                  <select type="select" class="type"  >
+                   <option value="normal" selected>  Normal</option>
+                    <option value="fire" selected>  Fire</option>
+                    <option value="fighting" selected>Fighting</option>
+                    <option value="water" selected>Water</option>
+                    <option value="flying" selected>Flying</option>
+                    <option value="grass" selected>Grass</option>
+                    <option value="poison" selected>Poison</option>
+                    <option value="electric" selected>Electric</option>
+                    <option value="ground" selected>Ground</option>
+                    <option value="psychic" selected>Psychic</option>
+                    <option value="rock" selected>Rock</option>
+                    <option value="ice" selected>Ice</option>
+                    <option value="bug" selected>Bug</option>
+                    <option value="dragon" selected>Dragon</option>
+                    <option value="ghost" selected>Ghost</option>
+                    <option value="dark" selected>Dark</option>
+                    <option value="steel" selected>Steel</option>
+                    <option value="fairy" selected>Fairy</option>
+                  </article>
                 </select>
-              </span>
-            </section>
-          </section>
-          <section class="order">
-            <section id="btn-order">
-              <span class="material-symbols-outlined">
-                sort_by_alpha
+                  
+                  <select type="select" class="type"  >
+                <article  id="btn-order">
+                  <article class="order">
+                    <input class="sort" type="button" value="" id="bntSort" />
+                    <input class="sort1" type="button" value="" id="bntSort2" /> 
+                  </article > 
 
-                <input class="sort" type="button" value="AZ" id="bntSort" />
-                <input class="sort1" type="button" value="ZA" id="bntSort2" />
-              </span>
-            </section>
-          </section>
+          </article >
+        </select>
         </section>
       </nav>
     </header>
@@ -97,6 +96,8 @@
         id="card-back"
         style="display: none"
       ></div>-->
+
+      <article class="card-reverso-container" id="card-reverso"></article>
     </main>
     <footer></footer>
     <script src="main.js" type="module"></script>

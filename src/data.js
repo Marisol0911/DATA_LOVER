@@ -25,6 +25,7 @@ export const getNextEvolutions = (pokemonEvolutions, pokemonData) => {
 
   return nextEvolutions;
 };
+/*export const getPrevtEvolutions =(pokemonPreEvolutions, pokemonData) =>*/
 
 export const filternextEvolution = (data, filterNexEvolution) => {
   return data.filter((pokemon) =>
