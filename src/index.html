@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Data Lovers</title>
+    //Etiqueta recomendada por kevin
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -13,86 +15,57 @@
       href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <h1>PINKÉMON</h1>
-      <nav >
-        <section class="menu">
-         
-          <article class="input">
-          <article class="search">
-          <input type="text" placeholder="Buscar" required id="searchTerm"/>
-          <button type="button" class="searchButton">
-            <i class="fa fa-search"></i>
-         </button>
-        </article>
-        </article>
-              <article id="btn-filter" >
-                
-                  <select type="select" class="type"  >
-                   <option value="normal" selected>  Normal</option>
-                    <option value="fire" selected>  Fire</option>
-                    <option value="fighting" selected>Fighting</option>
-                    <option value="water" selected>Water</option>
-                    <option value="flying" selected>Flying</option>
-                    <option value="grass" selected>Grass</option>
-                    <option value="poison" selected>Poison</option>
-                    <option value="electric" selected>Electric</option>
-                    <option value="ground" selected>Ground</option>
-                    <option value="psychic" selected>Psychic</option>
-                    <option value="rock" selected>Rock</option>
-                    <option value="ice" selected>Ice</option>
-                    <option value="bug" selected>Bug</option>
-                    <option value="dragon" selected>Dragon</option>
-                    <option value="ghost" selected>Ghost</option>
-                    <option value="dark" selected>Dark</option>
-                    <option value="steel" selected>Steel</option>
-                    <option value="fairy" selected>Fairy</option>
-                  </article>
-                </select>
-                  
-                  <select type="select" class="type"  >
-                <article  id="btn-order">
-                  <article class="order">
-                    <input class="sort" type="button" value="" id="bntSort" />
-                    <input class="sort1" type="button" value="" id="bntSort2" /> 
-                  </article > 
-
-
-          </article >
-        </select>
-
-                <input class="sort" type="button" value="AZ" id="bntSort" />
-                <input class="sort1" type="button" value="ZA" id="bntSort2" />
-              </span>
-            </section>
-          </section>
-          <select id="sort-by-CP" class="sort-by">
-            <option value="default" id="defaultCP">Sort by:</option>
-            <option value="A-Z" id="descendant-alphabet">Name A-Z</option>
-            <option value="Z-A" id="ascendant-alphabet">Name Z-A</option>
+      <div id="title">PINKÉMON</div>
+    </header>
+    <main>
+      <article class="search">
+        <input type="text" placeholder="Buscar" required id="search" />
+      </article>
+      <article class="menu">
+        <section id="btn-filter">
+          <select type="select" class="type">
+            <option value="normal" selected>Normal</option>
+            <option value="fire" selected>Fire</option>
+            <option value="fighting" selected>Fighting</option>
+            <option value="water" selected>Water</option>
+            <option value="flying" selected>Flying</option>
+            <option value="grass" selected>Grass</option>
+            <option value="poison" selected>Poison</option>
+            <option value="electric" selected>Electric</option>
+            <option value="ground" selected>Ground</option>
+            <option value="psychic" selected>Psychic</option>
+            <option value="rock" selected>Rock</option>
+            <option value="ice" selected>Ice</option>
+            <option value="bug" selected>Bug</option>
+            <option value="dragon" selected>Dragon</option>
+            <option value="ghost" selected>Ghost</option>
+            <option value="dark" selected>Dark</option>
+            <option value="steel" selected>Steel</option>
+            <option value="fairy" selected>Fairy</option>
+          </select>
+        </section>
+        <section id="sort">
+          <select id="sort-by-CP" class="sort-by" id="defaultCP">
+            <option value="Z-A" id="descendant-alphabet">Name A-Z</option>
+            <option value="A-Z" id="ascendant-alphabet">Name Z-A</option>
             <option value="desc" id="descendantCP">Higher to lower CP</option>
             <option value="asc" id="ascendantCP">Lower to higher CP</option>
           </select>
         </section>
+        
         <section class="region">
-          <label for="region"
-            >Region:
+          <label for="region">Region:</label>
             <select id="region-name" class="pokemon-region">
               <option>Select</option>
               <option value="kanto" id="kanto-region">Kanto</option>
@@ -112,11 +85,8 @@
               <option value="mythic" id="mythic-pokemon">Mythic</option>
             </select>
           </label>
-
         </section>
-      </nav>
-    </header>
-    <main>
+      </article>
       <section class="loading-page" id="loading">
         <p id="loading-message">Loading...</p>
         <img
@@ -128,72 +98,15 @@
       <article
         class="card-front-container"
         id="card-front"
-        style="display: grid"
-
       ></article>
+
+      
       <!--<div
         class="card-back-container"
         id="card-back"
         style="display: none"
       ></div>-->
-
       <article class="card-reverso-container" id="card-reverso"></article>
-
-      ></div>
-      <button class="back-to-top hidden">
-        <svg
-          class="back-to-top-icon"
-          fill="#FFFFFF"
-          height="400px"
-          width="400px"
-          version="1.1"
-          id="Layer_1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="-2.88 -2.88 29.76 29.76"
-          xml:space="preserve"
-          stroke="#FFFFFF"
-          transform="matrix(1, 0, 0, 1, 0, 0)"
-          stroke-width="0.4800000000000001"
-        >
-          <g id="SVGRepo_bgCarrier" stroke-width="0">
-            <rect
-              x="-2.88"
-              y="-2.88"
-              width="3em"
-              height="29.76"
-              rx="14.88"
-              fill="#f787d0"
-              strokewidth="0"
-            ></rect>
-          </g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></g>
-          <g id="SVGRepo_iconCarrier">
-            <polygon
-              points="7,12 7,11 9,11 9,9 11,9 11,21 13,21 13,9 15,9 15,11 17,11 17,12 19,12 19,9 17,9 17,7 15,7 15,5 14,5 14,4 13,4 13,3 11,3 11,4 10,4 10,5 9,5 9,7 7,7 7,9 5,9 5,12 "
-            ></polygon>
-          </g>
-        </svg>
-        <!--<svg
-          xmlns="https://www.svgrepo.com/svg/441884/up-arrow"
-          class="back-to-top-icon"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M7 11l5-5m0 0l5 5m-5-5v12"
-          />
-        </svg>-->
-      </button>
-
     </main>
     <footer></footer>
     <script src="main.js" type="module"></script>

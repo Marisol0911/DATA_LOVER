@@ -38,6 +38,7 @@ export const filterprevEvolution = (data, filterPreEvolution) => {
     pokemon["prev-evolution"].includes(filterPreEvolution)
   );
 };
+
 export const sortByNum = (data) => {
   return data.sort((a, b) => {
     if (a.num < b.num) {
@@ -51,30 +52,31 @@ export const sortByNum = (data) => {
   });
 };
 
-export const sortByName = (data) => {
-  return data.sort((a, b) => {
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-
-    return 0;
-  });
-};
-
-export const sortByNameZA = (data) => {
-  return data.sort((a, b) => {
-    if (a.name > b.name) {
-      return -1;
-    }
-    if (a.name < b.name) {
-      return 1;
-    }
-
-    return 0;
-  });
+export const sortByName = (data, order) => {
+  if (order === "ZA") {
+    return data.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+  } else if (order === "AZ") {
+    return data.sort((a, b) => {
+      if (a.name > b.name) {
+        return -1;
+      }
+      if (a.name < b.name) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else {
+    return data;
+  }
 };
 
 export const sortByDescCP = (data) => {
@@ -99,7 +101,7 @@ export const sortByAscCP = (data) => {
   return data.sort((pokemonA, pokemonB) => {
     if (pokemonA.stats["max-cp"] < pokemonB.stats["max-cp"]) {
       return -1;
-    } else if (pokemonA.stats["max-cp"] < pokemonB.stats["max-cp"]) {
+    } else if (pokemonA.stats["max-cp"] > pokemonB.stats["max-cp"]) {
       return 1;
     } else {
       return 0;
@@ -120,3 +122,33 @@ export const filterByRarity = (data, rarityUser) => {
     pokemon["pokemon-rarity"].includes(rarityUser)
   );
 };
+
+/*export const anidatedFilters = (
+  data,
+  typeFilter,
+  regionFilter,
+  rarityFilter,
+  nameFilter
+) => {
+  let filteredByType = data;
+  if (typeFilter) {
+    filteredByType = filterByType(data, typeFilter);
+  }
+
+  let filteredByRegion = filteredByType;
+  if (regionFilter) {
+    filteredByRegion = filterByRegion(filteredByType, regionFilter);
+  }
+
+  let filteredByRarity = filteredByRegion;
+  if (rarityFilter) {
+    filteredByRarity = filterByRarity(filteredByRegion, rarityFilter);
+  }
+
+  let filteredByName = filteredByRarity;
+  if (nameFilter) {
+    filteredByName = filterByName(filterByRarity, nameFilter);
+  }
+
+  return filteredByName;
+};*/

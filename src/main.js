@@ -4,33 +4,13 @@ import {
   filterByName,
   sortByName,
   filterByType,
-
-  sortByCP,
-  sortByNameZA,
-  sortByNum,
-  getNextEvolutions,
-} from "./data.js";
-
-//console.log(sortByCP(data.pokemon));
-
   sortByDescCP,
   sortByAscCP,
-  sortByNameZA,
+  sortByNum,
   filterByRarity,
   filterByRegion,
+  //anidatedFilters,
 } from "./data.js";
-
-//console.log(sortByAscCP(data.pokemon));
-
-//console.log(sortByName(data.pokemon));
-//console.log(filterByType(data.pokemon, "grass"));
-//console.log(filterByName(data.pokemon, "ditto"));
-//console.log(typeof pokemon.stats["max-cp"]);
-
-//console.log(sortByNum(data.num));
-
-//console.log(filterByRegion(data.pokemon, "johto"));
-
 
 const cardFront = document.querySelector(".card-front-container");
 const cardBack = document.querySelector(".card-back-container");
@@ -123,12 +103,6 @@ function displayPokemon(pokemonData) {
         <article class="pokemon-egg-expanded">Spawns in eggs: ${
           pokemon.egg === "not in eggs" ? "No" : "Yes"
         }</article>
-        <article class="quick-movement-expanded">Quick movement:
-        ${pokemon["quick-move"]
-          .map((attack) => `<div>${attack.name} (${attack.type})</div>`)
-          .join("")}
-      </article>
-     
       <article class="special-attack-expanded">Special attack:
         ${pokemon["quick-move"]
           .map((attack) => `<article>${attack.name} (${attack.type})</article`)
@@ -140,12 +114,7 @@ function displayPokemon(pokemonData) {
           .join("")}
       </article>
       </section > 
-
-   
-       
-       
-       
-     </section>
+        </section>
       `; //inner html reverse card ends
       cardFront.style.display = "none";
       //cardBack.style.display = "none";
@@ -162,11 +131,9 @@ function displayPokemon(pokemonData) {
 displayPokemon(data.pokemon);
 
 //elementos del dom
-const inputName = document.getElementById("searchTerm");
+const inputName = document.getElementById("search");
 const selectType = document.querySelector(".type");
-const sortName = document.getElementById("bntSort");
-const sortName1 = document.getElementById("bntSort2");
-const sortCP = document.querySelector(".sort-by");
+const sort = document.querySelector(".sort-by");
 const filterRarity = document.querySelector(".rarity");
 const filterRegion = document.querySelector(".region");
 
@@ -215,10 +182,10 @@ filterRarity.addEventListener("change", manageRaritySelect);
 function manageSortSelect(event) {
   const selectedSort = event.target.value;
   let sortedPokemon;
-  if (selectedSort === "A-Z") {
-    sortedPokemon = sortByName(data.pokemon);
-  } else if (selectedSort === "Z-A") {
-    sortedPokemon = sortByNameZA(data.pokemon);
+  if (selectedSort === "Z-A") {
+    sortedPokemon = sortByName(data.pokemon, "ZA");
+  } else if (selectedSort === "A-Z") {
+    sortedPokemon = sortByName(data.pokemon, "AZ");
   } else if (selectedSort === "desc") {
     sortedPokemon = sortByDescCP(data.pokemon);
   } else if (selectedSort === "asc") {
@@ -228,27 +195,8 @@ function manageSortSelect(event) {
   }
   displayPokemon(sortedPokemon);
 }
-sortCP.addEventListener("change", manageSortSelect);
+sort.addEventListener("change", manageSortSelect);
 
-function sortPokemonByName(event) {
-  const orderName = event.target.value;
-  const pokemonsSort = sortByName(data.pokemon, orderName);
-
-  displayPokemon(pokemonsSort);
-}
-
-function sortPokemonByNam(event) {
-  const orderName = event.target.value;
-  const pokemonsSort = sortByNameZA(data.pokemon, orderName);
-
-  displayPokemon(pokemonsSort);
-}
-
-sortName.addEventListener("click", sortPokemonByName);
-sortName1.addEventListener("click", sortPokemonByNam);
-
-
-//selectType.addEventListener("change", OrderPokemonByType);
 const showBackToTopOnPx = 100;
 const backToTopButton = document.querySelector(".back-to-top");
 const scrollContainer = () => {
@@ -264,7 +212,6 @@ document.addEventListener("scroll", () => {
 });
 const goToTop = () => {
   document.body.scrollIntoView();
-  behavior: "smooth";
+  //behavior: "smooth";
 };
 backToTopButton.addEventListener("click", goToTop);
-
