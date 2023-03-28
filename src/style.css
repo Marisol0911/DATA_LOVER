@@ -4,25 +4,23 @@
   box-sizing: border-box;
 }
 body {
-  /*display: flex;*/
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  height: 100px;
   margin: 50px;
   padding: 50px;
   box-sizing: border-box;
-  /*background: linear-gradient(180deg, #ffd4e5 0%, #f490b9 100%);*/
   background-color: #ffd4e5;
   background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f490b9' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  min-height: 100vh;
   width: 100%;
+  font-family: "Mukta", sans-serif;
+  font-size: 1px;
 }
-h1 {
+
+#title {
   font-family: "Luckiest Guy", cursive;
   color: rgb(242, 94, 145);
   text-align: center;
   text-shadow: 2px 2px 5px white;
-  font-size: 36px;
+  font-size: 40px;
 }
 
 .menu {
@@ -30,16 +28,18 @@ h1 {
   display: flex;
   flex-direction: row;
   padding: 50px;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .search {
   width: 100%;
   position: relative;
   display: flex;
+  text-align: center;
+  justify-content: center;
 }
-#searchTerm {
+#search {
+  display: flex;
   width: 400px;
   border: 3px solid pink;
   border-right: none;
@@ -48,98 +48,43 @@ h1 {
   border-radius: 20px;
   outline: none;
   color: #0c0e0d;
+  text-align: center;
 }
 
-.searchButton {
-  width: 50px;
-  height: 40px;
-  border: 1px solid pink;
-  background: rgb(242, 94, 145);
-  border-radius: 20px;
-  text-align: center;
-  color: #fff;
-  cursor: cursor;
-  font-size: 20px;
-}
-
-#bntSort {
-  width: 50px;
-  height: 40px;
-  background: rgb(242, 94, 145);
-  color: whitesmoke;
-  border: 20px;
-  text-align: center;
-  cursor: cursor;
-  font-size: 25px;
-  display: flex;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  flex-direction: row;
-}
-#bntSort2 {
-  width: 50px;
-  height: 40px;
-  background: rgb(242, 94, 145);
-  color: whitesmoke;
-  border: 20px;
-  text-align: center;
-  cursor: cursor;
-  font-size: 25px;
-  display: flex;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  flex-direction: row;
-}
-#btn-filter {
-  width: 50px;
-  height: 40px;
-  background: rgb(242, 94, 145);
-  color: whitesmoke;
-  border: 20px;
-  text-align: center;
-  cursor: cursor;
-  font-size: 25px;
-  display: flex;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  flex-direction: row;
-}
-.card-front-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-}
 .pokemon-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 1 calc(50% - 1em);
   background-color: white;
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   border-radius: 11px;
   text-align: center;
-  font-family: "VT323", monospace;
   font-size: 20px;
 }
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
+
 .card-front-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-}
-.pokemon-card {
-  background-color: white;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  font-family: "VT323", monospace;
-  font-size: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+  height: 250px;
 }
 .card-back-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 1 calc(20% - 1em);
+}
+
+@media (min-width: 62em) {
+  .card-back-container {
+    flex: 0 1 calc(20% - 1em); /* 5 tarjetas en fila*/
+  }
 }
 .pokemon-card-reverse {
   background-color: white;
@@ -147,7 +92,6 @@ h1 {
   padding: 10px;
   border-radius: 10px;
   text-align: center;
-  font-family: "VT323", monospace;
   font-size: 20px;
   align-items: stretch;
   align-content: flex-start;
@@ -167,7 +111,6 @@ h1 {
   padding: 10px;
   border-radius: 10px;
   text-align: center;
-  font-family: "VT323", monospace;
   font-size: 20px;
 }
 
@@ -197,8 +140,7 @@ h1 {
   order: -1;
   text-align: left;
 }
-.height {
-}
+
 .type-icon {
   display: inline-block;
   background-repeat: no-repeat;
