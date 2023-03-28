@@ -13,6 +13,7 @@ import {
   filterByRarity,
   filterByRegion,
   calculateAverageSpawnChance,
+  //anidatedFilters,
 } from "./data.js";
 
 const averageSpawnChance = calculateAverageSpawnChance(data);
@@ -147,11 +148,9 @@ function displayPokemon(pokemonData) {
 displayPokemon(data.pokemon);
 
 //elementos del dom
-const inputName = document.getElementById("searchTerm");
+const inputName = document.getElementById("search");
 const selectType = document.querySelector(".type");
-const sortName = document.getElementById("buttonSort");
-const sortName1 = document.getElementById("button-sort-2");
-const sortCP = document.querySelector(".sort-by");
+const sort = document.querySelector(".sort-by");
 const filterRarity = document.querySelector(".rarity");
 const filterRegion = document.querySelector(".region");
 
@@ -200,10 +199,10 @@ filterRarity.addEventListener("change", manageRaritySelect);
 function manageSortSelect(event) {
   const selectedSort = event.target.value;
   let sortedPokemon;
-  if (selectedSort === "A-Z") {
-    sortedPokemon = sortByName(data.pokemon);
-  } else if (selectedSort === "Z-A") {
-    sortedPokemon = sortByNameZA(data.pokemon);
+  if (selectedSort === "Z-A") {
+    sortedPokemon = sortByName(data.pokemon, "ZA");
+  } else if (selectedSort === "A-Z") {
+    sortedPokemon = sortByName(data.pokemon, "AZ");
   } else if (selectedSort === "desc") {
     sortedPokemon = sortByDescCP(data.pokemon);
   } else if (selectedSort === "asc") {
@@ -213,26 +212,8 @@ function manageSortSelect(event) {
   }
   displayPokemon(sortedPokemon);
 }
-sortCP.addEventListener("change", manageSortSelect);
+sort.addEventListener("change", manageSortSelect);
 
-function sortPokemonByName(event) {
-  const orderName = event.target.value;
-  const pokemonsSort = sortByName(data.pokemon, orderName);
-
-  displayPokemon(pokemonsSort);
-}
-
-function sortPokemonByNam(event) {
-  const orderName = event.target.value;
-  const pokemonsSort = sortByNameZA(data.pokemon, orderName);
-
-  displayPokemon(pokemonsSort);
-}
-
-sortName.addEventListener("click", sortPokemonByName);
-sortName1.addEventListener("click", sortPokemonByNam);
-
-//selectType.addEventListener("change", OrderPokemonByType);
 const showBackToTopOnPx = 100;
 const backToTopButton = document.querySelector(".back-to-top");
 const scrollContainer = () => {
