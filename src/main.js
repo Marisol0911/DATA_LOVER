@@ -4,55 +4,90 @@ import {
   filterByName,
   sortByName,
   filterByType,
+  sortByNameZA,
+  sortByNum,
+  //getNextEvolutions,
+  //getPrevEvolutions,
   sortByDescCP,
   sortByAscCP,
-  sortByNum,
   filterByRarity,
   filterByRegion,
+  calculateAverageSpawnChance,
   //anidatedFilters,
 } from "./data.js";
 
+const averageSpawnChance = calculateAverageSpawnChance(data);
+//console.log("Average spawn chance: " + averageSpawnChance);
+//console.log(sortByAscCP(data.pokemon));
+/*for (let i = 0; i < data.pokemon.length; i++) {
+  console.log(data.pokemon[i]["spawn-chance"]);
+}*/
+//console.log(sortByName(data.pokemon));
+//console.log(filterByType(data.pokemon, "grass"));
+//console.log(filterByName(data.pokemon, "ditto"));
+//console.log(typeof pokemon.stats["max-cp"]);
+
+//console.log(sortByNum(data.num));
+
+//console.log(filterByRegion(data.pokemon, "johto"));
+
 const cardFront = document.querySelector(".card-front-container");
-const cardBack = document.querySelector(".card-back-container");
+//const cardBack = document.querySelector(".card-back-container");
 const cardContainer = document.querySelector("main");
 const typeIcons = {
   normal:
-    '<article class="type-icon"><img src="/typelogo/normalicon.png" alt="normal"></article>',
-  fire: '<article class="type-icon"><img src="/typelogo/fireicon.png" alt="fire"></article>',
+    '<article class="type-icon"><img src="typelogo/normalicon.png" alt="normal"></article>',
+  fire: '<article class="type-icon"><img src="typelogo/fireicon.png" alt="fire"></article>',
   water:
-    '<article class="type-icon"><img src="/typelogo/watericon.png" alt="water"></article>',
+    '<article class="type-icon"><img src="typelogo/watericon.png" alt="water"></article>',
   electric:
-    '<article class="type-icon"><img src="/typelogo/electricicon.png" alt="electric"></article>',
+    '<article class="type-icon"><img src="typelogo/electricicon.png" alt="electric"></article>',
   grass:
-    '<article class="type-icon"><img src="/typelogo/grassicon.png" alt="grass"></article>',
-  ice: '<article class="type-icon"><img src="/typelogo/iceicon.png" alt="ice"></article>',
+    '<article class="type-icon"><img src="typelogo/grassicon.png" alt="grass"></article>',
+  ice: '<article class="type-icon"><img src="typelogo/iceicon.png" alt="ice"></article>',
   fighting:
-    '<article class="type-icon"><img src="/typelogo/fightingicon.png" alt="fighting"></article>',
+    '<article class="type-icon"><img src="typelogo/fightingicon.png" alt="fighting"></article>',
   poison:
-    '<article class="type-icon"><img src="/typelogo/poisonicon.png" alt="poison"></article>',
+    '<article class="type-icon"><img src="typelogo/poisonicon.png" alt="poison"></article>',
   ground:
-    '<article class="type-icon"><img src="/typelogo/groundicon.png" alt="ground"></article>',
+    '<article class="type-icon"><img src="typelogo/groundicon.png" alt="ground"></article>',
   flying:
-    '<article class="type-icon"><img src="/typelogo/flyingicon.png" alt="flying"></article>',
+    '<article class="type-icon"><img src="typelogo/flyingicon.png" alt="flying"></article>',
   psychic:
-    '<article class="type-icon"><img src="/typelogo/psychicicon.png" alt="psychic"></article>',
-  bug: '<article class="type-icon"><img src="/typelogo/bugicon.png" alt="bug"></article>',
-  rock: '<article class="type-icon"><img src="/typelogo/rockicon.png" alt="rock"></article>',
+    '<article class="type-icon"><img src="typelogo/psychicicon.png" alt="psychic"></article>',
+  bug: '<article class="type-icon"><img src="typelogo/bugicon.png" alt="bug"></article>',
+  rock: '<article class="type-icon"><img src="typelogo/rockicon.png" alt="rock"></article>',
   ghost:
-    '<article class="type-icon"><img src="/typelogo/ghosticon.png" alt="ghost"></article>',
+    '<article class="type-icon"><img src="typelogo/ghosticon.png" alt="ghost"></article>',
   dragon:
-    '<article class="type-icon"><img src="/typelogo/dragonicon.png" alt="dragon"></article>',
-  dark: '<article class="type-icon"><img src="/typelogo/darkicon.png" alt="dark"></article>',
+    '<article class="type-icon"><img src="typelogo/dragonicon.png" alt="dragon"></article>',
+  dark: '<article class="type-icon"><img src="typelogo/darkicon.png" alt="dark"></article>',
   steel:
-    '<article class="type-icon"><img src="/typelogo/steelicon.png" alt="steel"></article>',
+    '<article class="type-icon"><img src="typelogo/steelicon.png" alt="steel"></article>',
   fairy:
-    '<article class="type-icon"><img src="/typelogo/fairyicon.png" alt="fairy"></article>',
+    '<article class="type-icon"><img src="typelogo/fairyicon.png" alt="fairy"></article>',
 };
 
 const loadingPage = document.querySelector("#loading");
 window.addEventListener("load", () => {
   loadingPage.style.display = "none";
 });
+
+function spawnChanceColor(spawnChance, averageSpawnChance) {
+  if (spawnChance === null) {
+    return "spawn-bar spawn-bar-null";
+  } else if (spawnChance < averageSpawnChance * 0.9) {
+    return "spawn-bar spawn-bar-low";
+  } else if (
+    spawnChance < averageSpawnChance * 1.2 &&
+    spawnChance >= averageSpawnChance * 0.9
+  ) {
+    return "spawn bar spawn-bar-medium";
+  } else {
+    return "spawn-bar spawn-bar-high";
+  }
+}
+
 function displayPokemon(pokemonData) {
   cardFront.innerHTML = "";
   pokemonData.forEach((pokemon) => {
@@ -64,14 +99,10 @@ function displayPokemon(pokemonData) {
     card.innerHTML = `
       <article class="pokemon-num">#${pokemon.num}</article>
       <img class="pokemon-image" src="${pokemon.img}" alt="${pokemon.name}">
-      <article class="pokemon-name"> ${
-        pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-      }</article>
+      <article class="pokemon-name"> ${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</article>
       <article class="pokemon-type">${typeEmojis}</article
       <article class="pokemon-cp">Max CP: ${pokemon.stats["max-cp"]}</article>
-      <article class="pokemon-region">Region: ${
-        pokemon.generation.name
-      }</article>
+      <article class="pokemon-region">Region: ${pokemon.generation.name}</article>
     `;
     cardFront.appendChild(card);
     card.addEventListener("click", () => {
@@ -81,40 +112,26 @@ function displayPokemon(pokemonData) {
         
       <section  class="pokemon-info">
 
-      <section class="containerDerecho">
-        <article class="num"> #${pokemon.num}</article> 
-        <article class="name">${
-          pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-        }</article> 
-        <img class="img" src="${pokemon.img}" alt="${pokemon.name}">
-     
-        <article class="height"> Height: ${pokemon.size.height}</article> 
-        <article class="weight"> Weight: ${pokemon.size.weight}</article> 
-        <article class="quick-movement-expanded">Quick movement:
-        ${pokemon["quick-move"]
-          .map((attack) => `<div>${attack.name} (${attack.type})</div>`)
-          .join("")}
-      </article>
-      <article class="region">Region: ${pokemon.generation.name}</article>
-   </section>
-       
+        <section class="containerDerecho">
+          <article class="num"> #${pokemon.num}</article> 
+          <article class="name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</article> 
+          <img class="img" src="${pokemon.img}" alt="${pokemon.name}">
+          <article class="height"> Height: ${pokemon.size.height}</article> 
+          <article class="weight"> Weight: ${pokemon.size.weight}</article> 
+          
+          <article class="region">Region: ${pokemon.generation.name}</article>
+      </section>
       <section class="containerCentro">
         <article class="about">About: ${pokemon.about}</article>
-        <article class="pokemon-egg-expanded">Spawns in eggs: ${
-          pokemon.egg === "not in eggs" ? "No" : "Yes"
-        }</article>
-      <article class="special-attack-expanded">Special attack:
-        ${pokemon["quick-move"]
-          .map((attack) => `<article>${attack.name} (${attack.type})</article`)
-          .join("")}
-      </article>
-      <article class="special-attack-expanded">Special attack:
-        ${pokemon["quick-move"]
-          .map((attack) => `<article>${attack.name} (${attack.type})</article`)
-          .join("")}
-      </article>
-      </section > 
-        </section>
+        <article class="pokemon-egg-expanded">Spawns in eggs: ${pokemon.egg === "not in eggs" ? "No" : "Yes"}</article>
+        <article class="quick-movement-expanded">Quick movement:${pokemon["quick-move"].map((attack) => `${typeIcons[attack.type]}<div>${attack.name}</div>`).join("")}</article>
+
+        <article class="special-attack-expanded">Special attack:${pokemon["special-attack"].map((attack) => `${typeIcons[attack.type]}<article>${attack.name}</article`).join("")}</article>
+        <div class:"spawn-chance-header">Spawn Chance</div>
+        <article class="spawn-bar ${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance)}"></article>
+        </section > 
+
+      </section>
       `; //inner html reverse card ends
       cardFront.style.display = "none";
       //cardBack.style.display = "none";
@@ -212,6 +229,5 @@ document.addEventListener("scroll", () => {
 });
 const goToTop = () => {
   document.body.scrollIntoView();
-  //behavior: "smooth";
 };
 backToTopButton.addEventListener("click", goToTop);

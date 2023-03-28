@@ -102,6 +102,7 @@ export const sortByAscCP = (data) => {
     if (pokemonA.stats["max-cp"] < pokemonB.stats["max-cp"]) {
       return -1;
     } else if (pokemonA.stats["max-cp"] > pokemonB.stats["max-cp"]) {
+    } else if (pokemonA.stats["max-cp"] > pokemonB.stats["max-cp"]) {
       return 1;
     } else {
       return 0;
@@ -152,3 +153,18 @@ export const filterByRarity = (data, rarityUser) => {
 
   return filteredByName;
 };*/
+
+export const calculateAverageSpawnChance = (data) => {
+  let spawnChanceSum = 0;
+  let pokemonCount = 0;
+
+  for (const pokemon of data.pokemon) {
+    if (pokemon["spawn-chance"] !== null) {
+      spawnChanceSum += parseFloat(pokemon["spawn-chance"]);
+      pokemonCount++;
+    }
+  }
+
+  const averageSpawnChance = spawnChanceSum / pokemonCount;
+  return averageSpawnChance;
+};
