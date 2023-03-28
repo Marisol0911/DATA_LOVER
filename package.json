@@ -10,17 +10,19 @@
     "test": "jest --verbose --coverage",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
     "start": "serve src/",
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d src",
+    "testeandoando": "jest --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
     "babel-jest": "^27.0.1",
-    "eslint": "^8.3.0",
+    "eslint": "^8.36.0",
     "gh-pages": "^3.1.0",
     "htmlhint": "^1.0.0",
     "jest": "^27.0.1",
     "opener": "^1.5.1",
+    "prettier": "^2.8.7",
     "serve": "^14.2.0"
   },
   "engines": {

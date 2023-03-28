@@ -31,22 +31,20 @@
   <body>
     <header>
       <h1>PINKÉMON</h1>
-      <nav >
+      <nav>
         <section class="menu">
-         
           <article class="input">
           <article class="search">
           <input type="text" placeholder="Buscar" required id="searchTerm"/>
           <button type="button" class="searchButton">
             <i class="fa fa-search"></i>
-         </button>
+          </button>
         </article>
         </article>
               <article id="btn-filter" >
-                
                   <select type="select" class="type"  >
-                   <option value="normal" selected>  Normal</option>
-                    <option value="fire" selected>  Fire</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="fire" selected>Fire</option>
                     <option value="fighting" selected>Fighting</option>
                     <option value="water" selected>Water</option>
                     <option value="flying" selected>Flying</option>
@@ -63,8 +61,9 @@
                     <option value="dark" selected>Dark</option>
                     <option value="steel" selected>Steel</option>
                     <option value="fairy" selected>Fairy</option>
-                  </article>
-                </select>
+                  </select>
+              </article>
+                
                   
                   <select type="select" class="type"  >
                 <article  id="btn-order">
@@ -73,15 +72,16 @@
                     <input class="sort1" type="button" value="" id="bntSort2" /> 
                   </article > 
 
-
           </article >
         </select>
-
-                <input class="sort" type="button" value="AZ" id="bntSort" />
-                <input class="sort1" type="button" value="ZA" id="bntSort2" />
-              </span>
+                <input class="sort" type="button" value="AZ" id="buttonSort" />
+                <input class="sort1" type="button" value="ZA" id="button-sort-2" />
+              
             </section>
-          </section>
+          
+          <section class="sort">
+            <label for="sort-by-CP"
+              >Sort by:</label>
           <select id="sort-by-CP" class="sort-by">
             <option value="default" id="defaultCP">Sort by:</option>
             <option value="A-Z" id="descendant-alphabet">Name A-Z</option>
@@ -90,19 +90,19 @@
             <option value="asc" id="ascendantCP">Lower to higher CP</option>
           </select>
         </section>
+        
         <section class="region">
           <label for="region"
-            >Region:
+            >Region:</label>
             <select id="region-name" class="pokemon-region">
               <option>Select</option>
               <option value="kanto" id="kanto-region">Kanto</option>
               <option value="johto" id="johto-region">Johto</option>
             </select>
-          </label>
         </section>
         <section class="rarity">
           <label for="rarity"
-            >Rarity:
+            >Rarity:</label>
             <select id="rarity" class="pokemon-rarity">
               <option>Select</option>
               <option value="normal" id="normal-pokemon">Normal</option>
@@ -111,14 +111,12 @@
               </option>
               <option value="mythic" id="mythic-pokemon">Mythic</option>
             </select>
-          </label>
-
         </section>
       </nav>
     </header>
     <main>
       <section class="loading-page" id="loading">
-        <p id="loading-message">Loading...</p>
+        <div id="loading-message">Loading...</div>
         <img
           src="https://i.gifer.com/2e1E.gif"
           alt="singer jigglypuff"
@@ -139,7 +137,7 @@
 
       <article class="card-reverso-container" id="card-reverso"></article>
 
-      ></div>
+      
       <button class="back-to-top hidden">
         <svg
           class="back-to-top-icon"
@@ -178,20 +176,6 @@
             ></polygon>
           </g>
         </svg>
-        <!--<svg
-          xmlns="https://www.svgrepo.com/svg/441884/up-arrow"
-          class="back-to-top-icon"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M7 11l5-5m0 0l5 5m-5-5v12"
-          />
-        </svg>-->
       </button>
 
     </main>

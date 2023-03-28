@@ -251,3 +251,37 @@ h1 {
   width: 2.5rem;
   height: 2.5rem;
 }
+
+.spawn-bar {
+  height: 2em;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 1em;
+  width: 10em;
+  display: flex;
+  margin-left: 8em;
+}
+
+.spawn-bar-null {
+  background-color: #a9b1b1;
+}
+
+.spawn-bar-low {
+  background-color: #f37160;
+}
+
+.spawn-bar-medium {
+  background-color: orange;
+}
+
+.spawn-bar-high {
+  background-color: lightgreen;
+}
+.quick-movement-expanded img{
+  width: 1em;
+  height: 1em;
+}
+.special-attack-expanded img{
+  width: 1em;
+  height: 1em;
+}
