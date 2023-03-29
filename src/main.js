@@ -4,35 +4,16 @@ import {
   filterByName,
   sortByName,
   filterByType,
-  sortByNameZA,
   sortByNum,
-  //getNextEvolutions,
-  //getPrevEvolutions,
-  sortByDescCP,
-  sortByAscCP,
+  sortByCP,
   filterByRarity,
   filterByRegion,
   calculateAverageSpawnChance,
   //anidatedFilters,
 } from "./data.js";
 
-const averageSpawnChance = calculateAverageSpawnChance(data);
-//console.log("Average spawn chance: " + averageSpawnChance);
-//console.log(sortByAscCP(data.pokemon));
-/*for (let i = 0; i < data.pokemon.length; i++) {
-  console.log(data.pokemon[i]["spawn-chance"]);
-}*/
-//console.log(sortByName(data.pokemon));
-//console.log(filterByType(data.pokemon, "grass"));
-//console.log(filterByName(data.pokemon, "ditto"));
-//console.log(typeof pokemon.stats["max-cp"]);
-
-//console.log(sortByNum(data.num));
-
-//console.log(filterByRegion(data.pokemon, "johto"));
-
+const averageSpawnChance = calculateAverageSpawnChance(data)
 const cardFront = document.querySelector(".card-front-container");
-//const cardBack = document.querySelector(".card-back-container");
 const cardContainer = document.querySelector("main");
 const typeIcons = {
   normal:
@@ -74,7 +55,7 @@ window.addEventListener("load", () => {
 });
 
 function spawnChanceColor(spawnChance, averageSpawnChance) {
-  if (spawnChance === null) {
+  if (spawnChance === null || spawnChance === "null" || spawnChance === 0 || spawnChance === "0") {
     return "spawn-bar spawn-bar-null";
   } else if (spawnChance < averageSpawnChance * 0.9) {
     return "spawn-bar spawn-bar-low";
@@ -82,7 +63,7 @@ function spawnChanceColor(spawnChance, averageSpawnChance) {
     spawnChance < averageSpawnChance * 1.2 &&
     spawnChance >= averageSpawnChance * 0.9
   ) {
-    return "spawn bar spawn-bar-medium";
+    return "spawn-bar spawn-bar-medium";
   } else {
     return "spawn-bar spawn-bar-high";
   }
@@ -163,13 +144,12 @@ function numPokemon() {
   displayPokemon(pokemonsFiltered);
 }
 inputName.addEventListener("keyup", numPokemon);
+
 function searchPokemon() {
   const value = inputName.value;
   const pokemonsFiltered = filterByName(data.pokemon, value);
-
   displayPokemon(pokemonsFiltered);
 }
-
 inputName.addEventListener("keyup", searchPokemon);
 
 function filterPokemonByType(event) {
@@ -204,9 +184,9 @@ function manageSortSelect(event) {
   } else if (selectedSort === "A-Z") {
     sortedPokemon = sortByName(data.pokemon, "AZ");
   } else if (selectedSort === "desc") {
-    sortedPokemon = sortByDescCP(data.pokemon);
+    sortedPokemon = sortByCP(data.pokemon,"desc");
   } else if (selectedSort === "asc") {
-    sortedPokemon = sortByAscCP(data.pokemon);
+    sortedPokemon = sortByCP(data.pokemon,"asc");
   } else {
     sortedPokemon = data.pokemon;
   }

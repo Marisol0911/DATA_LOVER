@@ -5,37 +5,17 @@ export const filterByName = (data, filterName) => {
   );
 };
 
-export const getNextEvolutions = (pokemonEvolutions, pokemonData) => {
-  const nextEvolutions = [];
-  pokemonEvolutions.forEach((searchPokemon) => {
-    nextEvolutions.push(
-      pokemonData.find((pokemon) => pokemon.name === searchPokemon.name)
-    );
-
-    if (searchPokemon["next-evolution"] !== undefined) {
-      const newEvolutions = getNextEvolutions(
-        searchPokemon["next-evolution"],
-        pokemonData
-      );
-      newEvolutions.forEach((newPokemon) => {
-        nextEvolutions.push(newPokemon);
-      });
-    }
-  });
-
-  return nextEvolutions;
-};
-/*export const getPrevtEvolutions =(pokemonPreEvolutions, pokemonData) =>*/
-
-export const filternextEvolution = (data, filterNexEvolution) => {
-  return data.filter((pokemon) =>
-    pokemon["next-evolution"].includes(filterNexEvolution)
-  );
+export const filterByType = (data, typeUser) => {
+  return data.filter((pokemon) => pokemon.type.includes(typeUser));
 };
 
-export const filterprevEvolution = (data, filterPreEvolution) => {
+export const filterByRegion = (data, regionUser) => {
+  return data.filter((pokemon) => pokemon.generation.name.includes(regionUser));
+};
+
+export const filterByRarity = (data, rarityUser) => {
   return data.filter((pokemon) =>
-    pokemon["prev-evolution"].includes(filterPreEvolution)
+    pokemon["pokemon-rarity"].includes(rarityUser)
   );
 };
 
@@ -79,80 +59,32 @@ export const sortByName = (data, order) => {
   }
 };
 
-export const sortByDescCP = (data) => {
+export const sortByCP = (data, order) => {
   data.forEach((pokemon) => {
     pokemon.stats["max-cp"] = parseInt(pokemon.stats["max-cp"]);
   });
-  return data.sort((pokemonA, pokemonB) => {
-    if (pokemonA.stats["max-cp"] > pokemonB.stats["max-cp"]) {
-      return -1;
-    } else if (pokemonA.stats["max-cp"] < pokemonB.stats["max-cp"]) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
-};
-
-export const sortByAscCP = (data) => {
-  data.forEach((pokemon) => {
-    pokemon.stats["max-cp"] = parseInt(pokemon.stats["max-cp"]);
-  });
-  return data.sort((pokemonA, pokemonB) => {
-    if (pokemonA.stats["max-cp"] < pokemonB.stats["max-cp"]) {
-      return -1;
-    } else if (pokemonA.stats["max-cp"] > pokemonB.stats["max-cp"]) {
-    } else if (pokemonA.stats["max-cp"] > pokemonB.stats["max-cp"]) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
-};
-
-export const filterByType = (data, typeUser) => {
-  return data.filter((pokemon) => pokemon.type.includes(typeUser));
-};
-
-export const filterByRegion = (data, regionUser) => {
-  return data.filter((pokemon) => pokemon.generation.name.includes(regionUser));
-};
-
-export const filterByRarity = (data, rarityUser) => {
-  return data.filter((pokemon) =>
-    pokemon["pokemon-rarity"].includes(rarityUser)
-  );
-};
-
-/*export const anidatedFilters = (
-  data,
-  typeFilter,
-  regionFilter,
-  rarityFilter,
-  nameFilter
-) => {
-  let filteredByType = data;
-  if (typeFilter) {
-    filteredByType = filterByType(data, typeFilter);
+  if (order === "desc") {
+    return data.sort((pokemonA, pokemonB) => {
+      if (pokemonA.stats["max-cp"] > pokemonB.stats["max-cp"]) {
+        return -1;
+      } else if (pokemonA.stats["max-cp"] < pokemonB.stats["max-cp"]) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else {
+    return data.sort((pokemonA, pokemonB) => {
+      if (pokemonA.stats["max-cp"] < pokemonB.stats["max-cp"]) {
+        return -1;
+      } else if (pokemonA.stats["max-cp"] > pokemonB.stats["max-cp"]) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
   }
-
-  let filteredByRegion = filteredByType;
-  if (regionFilter) {
-    filteredByRegion = filterByRegion(filteredByType, regionFilter);
-  }
-
-  let filteredByRarity = filteredByRegion;
-  if (rarityFilter) {
-    filteredByRarity = filterByRarity(filteredByRegion, rarityFilter);
-  }
-
-  let filteredByName = filteredByRarity;
-  if (nameFilter) {
-    filteredByName = filterByName(filterByRarity, nameFilter);
-  }
-
-  return filteredByName;
-};*/
+};
 
 export const calculateAverageSpawnChance = (data) => {
   let spawnChanceSum = 0;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Data Lovers</title>
-    //Etiqueta recomendada por kevin
+    <!--Etiqueta recomendada por kevin-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -34,7 +34,9 @@
       </article>
       <article class="menu">
         <section id="btn-filter">
+          <label for="btn-filter">Type</label>
           <select type="select" class="type">
+            <option value="">Show all</option>
             <option value="normal" selected>Normal</option>
             <option value="fire" selected>Fire</option>
             <option value="fighting" selected>Fighting</option>
@@ -56,7 +58,8 @@
           </select>
         </section>
         <section id="sort">
-          <select id="sort-by-CP" class="sort-by" id="defaultCP">
+          <select id="sort-by-CP" class="sort-by">
+            <option>Select sort criteria</option>
             <option value="Z-A" id="descendant-alphabet">Name A-Z</option>
             <option value="A-Z" id="ascendant-alphabet">Name Z-A</option>
             <option value="desc" id="descendantCP">Higher to lower CP</option>
@@ -67,7 +70,8 @@
         <section class="region">
           <label for="region">Region:</label>
             <select id="region-name" class="pokemon-region">
-              <option>Select</option>
+              <option>Select region</option>
+              <option value="">Show all</option>
               <option value="kanto" id="kanto-region">Kanto</option>
               <option value="johto" id="johto-region">Johto</option>
             </select>
@@ -76,7 +80,8 @@
           <label for="rarity"
             >Rarity:</label>
             <select id="rarity" class="pokemon-rarity">
-              <option>Select</option>
+              <option>Select rarity</option>
+              <option value="">Show all</option>
               <option value="normal" id="normal-pokemon">Normal</option>
               <option value="legendary" id="legendary-pokemon">
                 Legendary
@@ -148,7 +153,7 @@
       </button>
 
     </main>
-    <footer></footer>
+    <!--<footer>CREATED BY MARISOL OSPINA && MARIANA VELASCO, 2023</footer>-->
     <script src="main.js" type="module"></script>
   </body>
 </html>
