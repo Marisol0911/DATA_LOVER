@@ -4,13 +4,11 @@
   box-sizing: border-box;
 }
 body {
-  height: 100px;
-  margin: 50px;
+  margin: 0;
   padding: 50px;
   box-sizing: border-box;
   background-color: #ffd4e5;
   background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f490b9' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  width: 100%;
   font-family: "Mukta", sans-serif;
   font-size: 1px;
 }
@@ -24,10 +22,10 @@ body {
 }
 
 .menu {
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  padding: 50px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
   justify-content: space-evenly;
 }
 
@@ -51,14 +49,24 @@ body {
   text-align: center;
 }
 
+.card-front-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  flex-wrap: wrap; 
+  max-width: 1000px; 
+}
+
 .pokemon-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 0 1 calc(50% - 1em);
+  flex: 0 1 calc(18% - 1em);
   background-color: white;
   margin: 5px;
-  padding: 5px;
+  padding: 10px 5px; 
   border-radius: 11px;
   text-align: center;
   font-size: 20px;
@@ -68,22 +76,18 @@ body {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
-.card-front-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 30%;
-  height: 250px;
-}
+
+
 .card-back-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 0 1 calc(20% - 1em);
+  flex: 1;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 @media (min-width: 62em) {
   .card-back-container {
-    flex: 0 1 calc(20% - 1em); /* 5 tarjetas en fila*/
+    flex: 0 1 calc(20% - 1em);
   }
 }
 .pokemon-card-reverse {
@@ -130,16 +134,12 @@ body {
 .containerCentro {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  text-align: justify;
+  flex-wrap: wrap;
   border: 3px solid palevioletred;
-  border-radius: 20px 10px 50px 30px;
-  text-align: center;
+  border-radius: 20px 20px 20px 20px;
+  justify-content: space-around;
 }
-.about {
-  order: -1;
-  text-align: left;
-}
+
 .type-icon {
   display: inline-block;
   background-repeat: no-repeat;
