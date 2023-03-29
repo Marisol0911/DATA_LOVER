@@ -17,8 +17,9 @@ body {
   font-family: "Luckiest Guy", cursive;
   color: rgb(242, 94, 145);
   text-align: center;
-  text-shadow: 2px 2px 5px white;
-  font-size: 40px;
+  text-shadow: 3px 3px 0px white;
+  font-size: 60px;
+  margin-bottom: 0.5em;
 }
 
 .menu {
@@ -39,14 +40,14 @@ body {
 #search {
   display: flex;
   width: 400px;
-  border: 3px solid pink;
-  border-right: none;
+  border: 3px solid #ff8348;
   padding: 5px;
   height: 40px;
   border-radius: 20px;
   outline: none;
   color: #0c0e0d;
   text-align: center;
+  box-shadow: rgba(255, 159, 34, 0.462) 5px 5px, rgba(235, 157, 73, 0.3) 10px 10px
 }
 
 .card-front-container {
@@ -93,6 +94,8 @@ body {
 
 .pokemon-card-expanded {
   align-items: stretch;
+  height: 600px;
+  width: 700px;
   margin: 0 10px;
   position: absolute;
   top: 50%;
@@ -103,6 +106,7 @@ body {
   border-radius: 10px;
   text-align: center;
   font-size: 20px;
+  overflow: auto;
 }
 
 .pokemon-info {
@@ -114,6 +118,20 @@ body {
   margin: 2px;
   justify-content: center;
   align-items: center;
+  border-radius: 20px 20px 20px 20px;
+}
+.containerDerecho {
+  order: -1;
+  text-align: left;
+  justify-content: space-around;
+  border: 3px solid plum;
+  border-radius: 20px 20px 20px 20px;
+  width: 250px;
+  padding: 5em;
+}
+
+.containerCentro {
+  display: flex;
   flex-direction: column;
   border-radius: 10px;
 }
@@ -217,3 +235,20 @@ body {
   width: 1em;
   height: 1em;
 }
+
+/*footer {
+  background-color: #f787d0;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 2em;
+  max-height: 6em;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}*/

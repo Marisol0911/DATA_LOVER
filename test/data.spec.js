@@ -1,12 +1,13 @@
 import {
   filterByName,
-  //filterByRarity,
-  //filterByRegion,
-  //sortByAscCP,
-  //sortByDescCP,
   //sortByName,
-  //sortByNameZA,
+  filterByType,
+  //sortByNum,
+  //sortByCP,
+  //filterByRarity,
+  filterByRegion,
   //calculateAverageSpawnChance,
+  //anidatedFilters,
 } from "../src/data.js";
 
 import { datMock } from "./mockData.js";
@@ -37,8 +38,23 @@ describe("Should return result by name", () => {
     expect(filtered).toHaveLength(1);
   });
   test("filterByName return name", () => {
-    const filtered = filterByName(datMock.pokemon, "calosmon");
+    const filtered = filterByName(datMock.pokemon, "pinkemon");
     expect(filtered).toHaveLength(0);
   });
 });
-//q: How do I install eslint?
+
+describe("returns all Pokemon with matching type", () => {
+  test("filterByType returns all Pokemon with matching type", () => {
+    const filtered = filterByType(datMock.pokemon, "grass");
+    expect(filtered).toHaveLength(3);
+  });
+});
+
+describe("returns all Pokemon with matching region", () => {
+  test("filterByRegion returns all Pokemon with matching region", () => {
+    const filtered = filterByRegion(datMock.pokemon, "kanto");
+    expect(filtered).toHaveLength(6);
+  });
+});
+
+
