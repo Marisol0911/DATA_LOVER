@@ -108,25 +108,24 @@ function displayPokemon(pokemonData) {
       expandedCard.innerHTML = `
         
       <section  class="pokemon-info">
-        <section class="containerDerecho">
+        <section class="item">
           <article class="num"> #${pokemon.num}</article> 
           <article class="name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</article> 
           <img class="img" src="${pokemon.img}" alt="${pokemon.name}">
           <article class="height"> Height: ${pokemon.size.height}</article> 
           <article class="weight"> Weight: ${pokemon.size.weight}</article> 
-          
           <article class="region">Region: ${pokemon.generation.name}</article>
       </section>
-      <section class="containerCentro">
-        <article class="about">About: ${pokemon.about}</article>
-        <article class="pokemon-egg-expanded">Spawns in eggs: ${pokemon.egg === "not in eggs" ? "No" : "Yes"}</article>
-        <article class="quick-movement-expanded">Quick movement:${pokemon["quick-move"].map((attack) => `${typeIcons[attack.type]}
-        <article>${attack.name}</article>`).join("")}</article>
-        <article class="special-attack-expanded">Special attack:${pokemon["special-attack"].map((attack) => `${typeIcons[attack.type]}
-        <article>${attack.name}</article`).join("")}</article>
-        <article class:"spawn-chance-header">Spawn Chance</article>
-        <article class="spawn-bar ${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance)}"></article>
-      </section > 
+      <section class ="item">
+      <article class="about">About: ${pokemon.about}</article>
+      <article class="pokemon-egg-expanded">Spawns in eggs: ${pokemon.egg === "not in eggs" ? "No" : "Yes"}</article>
+      <article class="quick-movement-expanded">Quick movement:${pokemon["quick-move"].map((attack) => `${typeIcons[attack.type]}
+      <article>${attack.name}</article>`).join("")}</article>
+      <article class="special-attack-expanded">Special attack:${pokemon["special-attack"].map((attack) => `${typeIcons[attack.type]}
+      <article>${attack.name}</article`).join("")}</article>
+      <article class:"spawn-chance-header">Spawn Chance</article>
+      <article class="spawn-bar ${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance)}"></article>
+      </section>
       </section>
       `; 
 
