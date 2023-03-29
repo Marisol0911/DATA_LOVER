@@ -58,8 +58,8 @@
           </select>
         </section>
         <section id="sort">
-          <select id="sort-by-CP" class="sort-by">
-            <option>Select sort criteria</option>
+          <label for="order">Odenar:</label>
+          <select id="sort-by-CP" class="sort-by" id="defaultCP">
             <option value="Z-A" id="descendant-alphabet">Name A-Z</option>
             <option value="A-Z" id="ascendant-alphabet">Name Z-A</option>
             <option value="desc" id="descendantCP">Higher to lower CP</option>
@@ -76,9 +76,9 @@
               <option value="johto" id="johto-region">Johto</option>
             </select>
         </section>
+      
         <section class="rarity">
-          <label for="rarity"
-            >Rarity:</label>
+          <label for="rarity">Rarity:</label>
             <select id="rarity" class="pokemon-rarity">
               <option>Select rarity</option>
               <option value="">Show all</option>
@@ -102,7 +102,6 @@
         class="card-front-container"
         id="card-front"
       ></article>
-
       
       <!--<div
         class="card-back-container"

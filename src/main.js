@@ -72,7 +72,7 @@ function spawnChanceColor(spawnChance, averageSpawnChance) {
 function displayPokemon(pokemonData) {
   cardFront.innerHTML = "";
   pokemonData.forEach((pokemon) => {
-    const card = document.createElement("div");
+    const card = document.createElement("section");
     card.classList.add("pokemon-card");
     const typeEmojis = pokemon.type
       .map((type) => `<article class="type-icon">${typeIcons[type]}</article>`)
@@ -92,34 +92,32 @@ function displayPokemon(pokemonData) {
       expandedCard.innerHTML = `
         
       <section  class="pokemon-info">
-
-        <section class="containerDerecho">
+        <section class="item">
           <article class="num"> #${pokemon.num}</article> 
           <article class="name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</article> 
           <img class="img" src="${pokemon.img}" alt="${pokemon.name}">
           <article class="height"> Height: ${pokemon.size.height}</article> 
           <article class="weight"> Weight: ${pokemon.size.weight}</article> 
-          
           <article class="region">Region: ${pokemon.generation.name}</article>
       </section>
-      <section class="containerCentro">
-        <article class="about">About: ${pokemon.about}</article>
-        <article class="pokemon-egg-expanded">Spawns in eggs: ${pokemon.egg === "not in eggs" ? "No" : "Yes"}</article>
-        <article class="quick-movement-expanded">Quick movement:${pokemon["quick-move"].map((attack) => `${typeIcons[attack.type]}<div>${attack.name}</div>`).join("")}</article>
-
-        <article class="special-attack-expanded">Special attack:${pokemon["special-attack"].map((attack) => `${typeIcons[attack.type]}<article>${attack.name}</article`).join("")}</article>
-        <div class:"spawn-chance-header">Spawn Chance</div>
-        <article class="spawn-bar ${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance)}"></article>
-        </section > 
-
+      <section class ="item">
+      <article class="about">About: ${pokemon.about}</article>
+      <article class="pokemon-egg-expanded">Spawns in eggs: ${pokemon.egg === "not in eggs" ? "No" : "Yes"}</article>
+      <article class="quick-movement-expanded">Quick movement:${pokemon["quick-move"].map((attack) => `${typeIcons[attack.type]}
+      <article>${attack.name}</article>`).join("")}</article>
+      <article class="special-attack-expanded">Special attack:${pokemon["special-attack"].map((attack) => `${typeIcons[attack.type]}
+      <article>${attack.name}</article`).join("")}</article>
+      <article class:"spawn-chance-header">Spawn Chance</article>
+      <article class="spawn-bar ${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance)}"></article>
       </section>
-      `; //inner html reverse card ends
+      </section>
+      `; 
+
       cardFront.style.display = "none";
-      //cardBack.style.display = "none";
       cardContainer.appendChild(expandedCard);
+
       expandedCard.addEventListener("click", () => {
-        cardFront.style.display = "grid";
-        //cardBack.style.display = "grid";
+        cardFront.style.display = "flex";
         cardContainer.removeChild(expandedCard);
       });
     });
@@ -207,7 +205,12 @@ document.addEventListener("scroll", () => {
     backToTopButton.classList.add("hidden");
   }
 });
+
 const goToTop = () => {
-  document.body.scrollIntoView();
+  const currentPosition = window.scrollY;
+  if (currentPosition > 0) {
+    requestAnimationFrame(goToTop); 
+    window.scrollTo(0, currentPosition - currentPosition / 8);
+  }
 };
 backToTopButton.addEventListener("click", goToTop);
