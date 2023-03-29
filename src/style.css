@@ -108,8 +108,8 @@ body {
 .pokemon-info {
   display: flex;
   height: 600px;
-  width:800px;
-  background: linear-gradient(rgb(233, 233, 240), pink);
+  width:600px;
+  background: linear-gradient(rgb(233, 233, 240), rgb(201, 76, 97));
   justify-content: space-evenly;
   margin: 2px;
   justify-content: center;
