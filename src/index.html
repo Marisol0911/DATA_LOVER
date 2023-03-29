@@ -34,7 +34,8 @@
       </article>
       <article class="menu">
         <section id="btn-filter">
-          <select type="select" class="type">
+          <label for="order">Type:</label>
+          <select type="select" class="type" >
             <option value="normal" selected>Normal</option>
             <option value="fire" selected>Fire</option>
             <option value="fighting" selected>Fighting</option>
@@ -56,6 +57,7 @@
           </select>
         </section>
         <section id="sort">
+          <label for="order">Odenar:</label>
           <select id="sort-by-CP" class="sort-by" id="defaultCP">
             <option value="Z-A" id="descendant-alphabet">Name A-Z</option>
             <option value="A-Z" id="ascendant-alphabet">Name Z-A</option>
@@ -72,9 +74,9 @@
               <option value="johto" id="johto-region">Johto</option>
             </select>
         </section>
+      
         <section class="rarity">
-          <label for="rarity"
-            >Rarity:</label>
+          <label for="rarity">Rarity:</label>
             <select id="rarity" class="pokemon-rarity">
               <option>Select</option>
               <option value="normal" id="normal-pokemon">Normal</option>
@@ -97,7 +99,6 @@
         class="card-front-container"
         id="card-front"
       ></article>
-
       
       <!--<div
         class="card-back-container"
