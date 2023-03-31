@@ -231,13 +231,14 @@ body {
   font-family: VT323, monospace;
   color: rgb(0, 0, 0);
 }
+
 select {
   font-size: 16px;
-  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
 }
+
 #sort label, #btn-filter label, #regionsctn label, #raritysctn label {
   color: rgb(0, 0, 0);
   font-size: 20px;
