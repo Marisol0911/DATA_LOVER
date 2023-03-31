@@ -112,7 +112,7 @@ body {
 .pokemon-info {
   display: flex;
   height: 600px;
-  width:800px;
+  width:600px;
   background: linear-gradient(rgb(233, 233, 240), rgb(201, 76, 97));
   justify-content: space-evenly;
   margin: 2px;
@@ -277,4 +277,38 @@ header {
   width: 40rem;
   height: 10rem;
   margin-top: 0;
+}
+
+.type{
+  border-radius: 20px;
+  text-align: center;
+  font-size: 20px;
+  width: 200px;
+  height: 20px;
+  height: 30px;
+}
+
+.sort-by{
+  border-radius: 20px;
+  text-align: center;
+  font-size: 20px;
+  width: 200px;
+  height: 20px;
+  height: 30px;
+}
+.pokemon-region{
+  border-radius: 20px;
+  text-align: center;
+  font-size: 20px;
+  width: 200px;
+  height: 20px;
+  height: 30px;
+}
+
+.pokemon-rarity{
+  border-radius: 20px;
+  text-align: center;
+  font-size: 20px;
+  width: 200px;
+  height: 30px;
 }
