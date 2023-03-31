@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Data Lovers</title>
-    <!--Etiqueta recomendada por kevin-->
+    <title>Pinkemon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -21,12 +20,12 @@
       href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <div id="title">PINKÉMON</div>
+      <!--<div id="title">PINKÉMON</div>-->
+      <img src="pinkemon-logo.png" id="pinkemon-logo"/>
     </header>
     <main>
       <article class="search">
@@ -34,9 +33,9 @@
       </article>
       <article class="menu">
         <section id="btn-filter">
-          <label for="btn-filter">Type</label>
+          <label class="tag" for="btn-filter">Type:</label>
           <select type="select" class="type">
-            <option value="">Show all</option>
+            <option value="all">Show all</option>
             <option value="normal" selected>Normal</option>
             <option value="fire" selected>Fire</option>
             <option value="fighting" selected>Fighting</option>
@@ -55,11 +54,13 @@
             <option value="dark" selected>Dark</option>
             <option value="steel" selected>Steel</option>
             <option value="fairy" selected>Fairy</option>
+            <option value="typeopt" selected>Select type</option>
           </select>
         </section>
         <section id="sort">
-          <label for="order">Odenar:</label>
-          <select id="sort-by-CP" class="sort-by" id="defaultCP">
+          <label class="tag" for="order">Sort by:</label>
+          <select id="sort-by-CP" class="sort-by">
+            <option value="default" id="sort-by-default">Default</option>
             <option value="Z-A" id="descendant-alphabet">Name A-Z</option>
             <option value="A-Z" id="ascendant-alphabet">Name Z-A</option>
             <option value="desc" id="descendantCP">Higher to lower CP</option>
@@ -67,8 +68,8 @@
           </select>
         </section>
         
-        <section class="region">
-          <label for="region">Region:</label>
+        <section class="region" id="regionsctn">
+          <label class="tag" for="region">Region:</label>
             <select id="region-name" class="pokemon-region">
               <option>Select region</option>
               <option value="">Show all</option>
@@ -77,8 +78,8 @@
             </select>
         </section>
       
-        <section class="rarity">
-          <label for="rarity">Rarity:</label>
+        <section class="rarity" id="raritysctn">
+          <label class="tag" for="rarity">Rarity:</label>
             <select id="rarity" class="pokemon-rarity">
               <option>Select rarity</option>
               <option value="">Show all</option>

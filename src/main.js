@@ -56,16 +56,16 @@ window.addEventListener("load", () => {
 
 function spawnChanceColor(spawnChance, averageSpawnChance) {
   if (spawnChance === null || spawnChance === "null" || spawnChance === 0 || spawnChance === "0") {
-    return "spawn-bar spawn-bar-null";
+    return { className: "spawn-bar spawn-bar-null", text: "Null" };
   } else if (spawnChance < averageSpawnChance * 0.9) {
-    return "spawn-bar spawn-bar-low";
+    return { className: "spawn-bar spawn-bar-low", text: "Low" };
   } else if (
     spawnChance < averageSpawnChance * 1.2 &&
     spawnChance >= averageSpawnChance * 0.9
   ) {
-    return "spawn-bar spawn-bar-medium";
+    return { className: "spawn-bar spawn-bar-medium", text: "Medium" };
   } else {
-    return "spawn-bar spawn-bar-high";
+    return { className: "spawn-bar spawn-bar-high", text: "High" };
   }
 }
 
@@ -103,12 +103,24 @@ function displayPokemon(pokemonData) {
       <section class ="item">
       <article class="about">About: ${pokemon.about}</article>
       <article class="pokemon-egg-expanded">Spawns in eggs: ${pokemon.egg === "not in eggs" ? "No" : "Yes"}</article>
-      <article class="quick-movement-expanded">Quick movement:${pokemon["quick-move"].map((attack) => `${typeIcons[attack.type]}
-      <article>${attack.name}</article>`).join("")}</article>
-      <article class="special-attack-expanded">Special attack:${pokemon["special-attack"].map((attack) => `${typeIcons[attack.type]}
-      <article>${attack.name}</article`).join("")}</article>
+      <article class="quick-movement-expanded">Quick movement:${pokemon["quick-move"].map((attack) => `<div class="quick-move-container">
+          <span>${attack.name}</span>
+          ${typeIcons[attack.type]}
+        </div>
+      `)
+      .join("")}
+      </article>
+      <article class="special-attack-expanded">Special attack:${pokemon["special-attack"].map((attack) => `<div class="special-attack-container">
+          <span>${attack.name}</span>
+          ${typeIcons[attack.type]}
+        </div>
+      `)
+      .join("")}
+      </article>
       <article class:"spawn-chance-header">Spawn Chance</article>
-      <article class="spawn-bar ${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance)}"></article>
+      <article class="spawn-bar ${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance).className}">
+        <span class="spawn-bar-text">${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance).text}</span>
+      </article>
       </section>
       </section>
       `; 
@@ -152,8 +164,13 @@ inputName.addEventListener("keyup", searchPokemon);
 
 function filterPokemonByType(event) {
   const selectedType = event.target.value;
-  const pokemonsFiltered = filterByType(data.pokemon, selectedType);
-
+  let pokemonsFiltered;
+  
+  if (selectedType === "all") {
+    pokemonsFiltered = data.pokemon;
+  } else {
+    pokemonsFiltered = filterByType(data.pokemon, selectedType);
+  }
   displayPokemon(pokemonsFiltered);
 }
 selectType.addEventListener("change", filterPokemonByType);

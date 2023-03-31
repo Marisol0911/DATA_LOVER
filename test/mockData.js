@@ -10,6 +10,9 @@ export const datMock = {
       "pokemon-rarity": "normal",
       type: ["grass", "poison"],
       "spawn-chance": "0.69",
+      stats: {
+        "max-cp": "1115",
+      },
     },
 
     {
@@ -22,6 +25,9 @@ export const datMock = {
       "pokemon-rarity": "normal",
       type: ["grass", "poison"],
       "spawn-chance": "0.042",
+      stats: {
+        "max-cp": "1699",
+      },
     },
 
     {
@@ -34,6 +40,9 @@ export const datMock = {
       "pokemon-rarity": "normal",
       type: ["grass", "poison"],
       "spawn-chance": "0.017",
+      stats: {
+        "max-cp": "2720",
+      },
     },
 
     {
@@ -46,6 +55,9 @@ export const datMock = {
       "pokemon-rarity": "normal",
       type: ["fire"],
       "spawn-chance": "0.253",
+      stats: {
+        "max-cp": "980",
+      },
     },
     
     {
@@ -58,6 +70,9 @@ export const datMock = {
       "pokemon-rarity": "normal",
       type: ["water"],
       "spawn-chance": "0.58",
+      stats: {
+        "max-cp": "946",
+      },
     },
 
     {
@@ -69,7 +84,10 @@ export const datMock = {
       },
       "pokemon-rarity": "normal",
       type: ["bug"],
-      "spawn-chance": "3.032", 
+      "spawn-chance": "3.032",
+      stats: {
+        "max-cp": "437",
+      }, 
     },
   ],
 };

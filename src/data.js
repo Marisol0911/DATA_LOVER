@@ -27,7 +27,6 @@ export const sortByNum = (data) => {
     if (a.num > b.num) {
       return 1;
     }
-
     return 0;
   });
 };
