@@ -107,15 +107,13 @@ function displayPokemon(pokemonData) {
           <span>${attack.name}</span>
           ${typeIcons[attack.type]}
         </div>
-      `)
-      .join("")}
+      `).join("")}
       </article>
       <article class="special-attack-expanded">Special attack:${pokemon["special-attack"].map((attack) => `<div class="special-attack-container">
           <span>${attack.name}</span>
           ${typeIcons[attack.type]}
         </div>
-      `)
-      .join("")}
+      `).join("")}
       </article>
       <article class:"spawn-chance-header">Spawn Chance</article>
       <article class="spawn-bar ${spawnChanceColor(pokemon["spawn-chance"],averageSpawnChance).className}">

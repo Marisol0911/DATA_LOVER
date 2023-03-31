@@ -7,8 +7,8 @@
 <h2>Prototipo de baja fidelidad</h2>
 <img src="https://res.cloudinary.com/dslzbcaxd/image/upload/v1680278275/IMG_2510_en5sqm.jpg" alt="Prototipo de baja fidelidad"/>
 <h2><a href="https://zpl.io/noZWMlx">Prototipo de alta fidelidad en Zeplin 💻</a></h2>
-<!--<h2>Vista del proyecto</h2>
-<img src="https://res.cloudinary.com/dslzbcaxd/image/upload/v1677810208/Card_validation_view_bqty8p.png" alt="Vista de Pinkémon"/>-->
+<h2>Vista del proyecto</h2>
+<img src="src/Pinkemon.gif" alt="Vista de Pinkémon"/>
 <h2>Problemas detectados en test de usabilidad 👀</h2>
 <ul>
 <li>Problema 1</li>
