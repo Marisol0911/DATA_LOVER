@@ -40,14 +40,14 @@ body {
 #search {
   display: flex;
   width: 400px;
-  border: 3px solid #ff8348;
+  border: 3px solid #ff4879;
   padding: 5px;
   height: 40px;
   border-radius: 20px;
   outline: none;
   color: #0c0e0d;
   text-align: center;
-  box-shadow: rgba(255, 159, 34, 0.462) 5px 5px, rgba(235, 157, 73, 0.3) 10px 10px
+  box-shadow: rgba(255, 34, 126, 0.462) 5px 5px, rgba(235, 73, 165, 0.3) 10px 10px
 }
 
 .card-front-container {
@@ -113,27 +113,12 @@ body {
   display: flex;
   height: 600px;
   width:800px;
-  background: linear-gradient(rgb(233, 233, 240), pink);
+  background: linear-gradient(rgb(233, 233, 240), rgb(201, 76, 97));
   justify-content: space-evenly;
   margin: 2px;
-  justify-content: center;
   align-items: center;
-  border-radius: 20px 20px 20px 20px;
-}
-.containerDerecho {
-  order: -1;
-  text-align: left;
-  justify-content: space-around;
-  border: 3px solid plum;
-  border-radius: 20px 20px 20px 20px;
-  width: 250px;
-  padding: 5em;
-}
-
-.containerCentro {
-  display: flex;
-  flex-direction: column;
   border-radius: 10px;
+  flex-direction: column;
 }
 
 .item {
@@ -157,7 +142,9 @@ body {
 .type-icon img {
   max-width: 30px;
   max-height: 30px;
+  margin-right: 5px;
 }
+
 .loading-page {
   position: fixed;
   top: 0;
@@ -210,6 +197,7 @@ body {
   width: 10em;
   display: flex;
   margin-left: 8em;
+  justify-content: center;
 }
 
 .spawn-bar-null {
@@ -227,13 +215,38 @@ body {
 .spawn-bar-high {
   background-color: lightgreen;
 }
+
 .quick-movement-expanded img{
   width: 1em;
   height: 1em;
 }
+
 .special-attack-expanded img{
   width: 1em;
   height: 1em;
+}
+
+.spawn-bar-text {
+  font-size: 14px;
+  font-family: VT323, monospace;
+  color: rgb(0, 0, 0);
+}
+select {
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+#sort label, #btn-filter label, #regionsctn label, #raritysctn label {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "VT323", monospace;
+}
+.tag {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 /*footer {
@@ -250,5 +263,18 @@ body {
   position: fixed;
   width: 100%;
   bottom: 0;
-  left: 0;
-}*/
+  left: 0;*/
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom:3rem;
+}
+
+#pinkemon-logo {
+  width: 40rem;
+  height: 10rem;
+  margin-top: 0;
+}
