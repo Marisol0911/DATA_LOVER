@@ -156,7 +156,15 @@ inputName.addEventListener("keyup", numPokemon);
 function searchPokemon() {
   const value = inputName.value;
   const pokemonsFiltered = filterByName(data.pokemon, value);
-  displayPokemon(pokemonsFiltered);
+  if (pokemonsFiltered.length === 0) {
+    const noPokemonFound = document.createElement("div");
+    noPokemonFound.id = "no-results-found";
+    noPokemonFound.textContent = "No Pokémon matched the entered criteria, please try again.";
+    cardContainer.innerHTML = "";
+    cardContainer.appendChild(noPokemonFound);
+  } else {
+    displayPokemon(pokemonsFiltered);
+  }
 }
 inputName.addEventListener("keyup", searchPokemon);
 

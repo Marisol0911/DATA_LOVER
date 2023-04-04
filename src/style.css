@@ -196,7 +196,7 @@ body {
   border-radius: 1em;
   width: 10em;
   display: flex;
-  margin-left: 8em;
+  margin-left: 13em;
   justify-content: center;
 }
 
@@ -250,22 +250,6 @@ select {
   margin-bottom: 10px;
 }
 
-/*footer {
-  background-color: #f787d0;
-  color: white;
-  text-align: center;
-  padding: 1em;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 2em;
-  max-height: 6em;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;*/
-
 header {
   display: flex;
   justify-content: center;
@@ -312,4 +296,10 @@ header {
   font-size: 20px;
   width: 200px;
   height: 30px;
+}
+
+#no-results-found {
+  color: black;
+  font-size: 20em;
+  text-align: center;
 }
