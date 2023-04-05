@@ -72,7 +72,7 @@
           <label class="tag" for="region">Region:</label>
             <select id="region-name" class="pokemon-region">
               <option>Select region</option>
-              <option value="">Show all</option>
+              <option value="all">Show all</option>
               <option value="kanto" id="kanto-region">Kanto</option>
               <option value="johto" id="johto-region">Johto</option>
             </select>
@@ -82,7 +82,7 @@
           <label class="tag" for="rarity">Rarity:</label>
             <select id="rarity" class="pokemon-rarity">
               <option>Select rarity</option>
-              <option value="">Show all</option>
+              <option value="all">Show all</option>
               <option value="normal" id="normal-pokemon">Normal</option>
               <option value="legendary" id="legendary-pokemon">
                 Legendary
@@ -90,6 +90,9 @@
               <option value="mythic" id="mythic-pokemon">Mythic</option>
             </select>
         </section>
+      </article>
+      <article class="clear" id="clear-filters">
+        <button class="clear-btn" id="clearfiltersbtn">Clear filters</button>
       </article>
       <section class="loading-page" id="loading">
         <div id="loading-message">Loading...</div>
@@ -103,15 +106,7 @@
         class="card-front-container"
         id="card-front"
       ></article>
-      
-      <!--<div
-        class="card-back-container"
-        id="card-back"
-        style="display: none"
-      ></div>-->
       <article class="card-reverso-container" id="card-reverso"></article>
-
-      
       <button class="back-to-top hidden">
         <svg
           class="back-to-top-icon"

@@ -303,3 +303,24 @@ header {
   font-size: 20em;
   text-align: center;
 }
+
+.clear{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.clear-btn {
+  background-color: #f787d0;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-left: auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 10px,
+    rgba(0, 0, 0, 0.22) 0px 5px 5px;
+}

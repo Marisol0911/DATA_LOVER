@@ -11,9 +11,9 @@
 ![Pinkemon interface](https://media.giphy.com/media/Hsel1DhHdqUSDEkLsW/giphy.gif)
 <h2>Problemas detectados en test de usabilidad 👀</h2>
 <ul>
-<li>Problema 1</li>
-<li>Problema 2</li>
-<li>Problema 3</li>
+<li>El modal se puede cerrar solo si se da click dentro de la tarjeta, fuera del scroll bar no se puede</li>
+<li>Combinar estilos como negrita en el texto, de manera que no se vea plano</li>
+<li>Que la letra sea ligeramente más grande</li>
 </ul>
 <h2>Tecnologías utilizadas</h2>
 <ul>
