@@ -140,8 +140,9 @@ displayPokemon(data.pokemon);
 const inputName = document.getElementById("search");
 const selectType = document.querySelector(".type");
 const sort = document.querySelector(".sort-by");
-const filterRarity = document.querySelector(".rarity");
-const filterRegion = document.querySelector(".region");
+const filterRarity = document.querySelector(".pokemon-rarity");
+const filterRegion = document.getElementById("region-name");
+const clearFiltersButton= document.getElementById("clearfiltersbtn");
 
 // como se ejecuta
 
@@ -183,16 +184,22 @@ selectType.addEventListener("change", filterPokemonByType);
 
 function manageRegionSelect(event) {
   const selectedRegion = event.target.value;
-  const filteredPokemonRegion = filterByRegion(data.pokemon, selectedRegion);
-
+  let filteredPokemonRegion; 
+  if (selectedRegion === "all") {
+    filteredPokemonRegion = data.pokemon;
+  } else { filteredPokemonRegion = filterByRegion(data.pokemon, selectedRegion);
+  }
   displayPokemon(filteredPokemonRegion);
 }
 filterRegion.addEventListener("change", manageRegionSelect);
 
 function manageRaritySelect(event) {
   const selectedRarity = event.target.value;
-  const filteredPokemonRarity = filterByRarity(data.pokemon, selectedRarity);
-
+  let filteredPokemonRarity;
+  if (selectedRarity === "all") {
+    filteredPokemonRarity = data.pokemon;
+  } else { filteredPokemonRarity = filterByRarity(data.pokemon, selectedRarity);
+  }
   displayPokemon(filteredPokemonRarity);
 }
 filterRarity.addEventListener("change", manageRaritySelect);
@@ -200,7 +207,9 @@ filterRarity.addEventListener("change", manageRaritySelect);
 function manageSortSelect(event) {
   const selectedSort = event.target.value;
   let sortedPokemon;
-  if (selectedSort === "Z-A") {
+  if (selectedSort === "default") {
+  sortedPokemon = sortByNum(data.pokemon, "default");
+  } else if (selectedSort === "Z-A") {
     sortedPokemon = sortByName(data.pokemon, "ZA");
   } else if (selectedSort === "A-Z") {
     sortedPokemon = sortByName(data.pokemon, "AZ");
@@ -237,3 +246,12 @@ const goToTop = () => {
   }
 };
 backToTopButton.addEventListener("click", goToTop);
+
+clearFiltersButton.addEventListener ("click", () => {
+  inputName.value = "";
+  selectType.value = "all";
+  sort.value = "default";
+  filterRarity.value = "all";
+  filterRegion.value = "all";
+  displayPokemon(data.pokemon);
+});
